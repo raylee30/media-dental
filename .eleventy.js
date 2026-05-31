@@ -8,7 +8,6 @@ export default function (eleventyConfig) {
     "src/css",
     "src/js",
     "src/fonts",
-    "src/_redirects",
     "src/_headers",
     "src/styles.css",
     "src/script.js"
@@ -20,8 +19,7 @@ export default function (eleventyConfig) {
     }
   });
 
-  eleventyConfig.ignores.add("src/**/*.html");
-  eleventyConfig.addPassthroughCopy("src/**/*.html");
+  eleventyConfig.ignores.add("src/admin/**/*.html");
 
   return {
     dir: {
