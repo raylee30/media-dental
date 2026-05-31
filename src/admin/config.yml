@@ -11,23 +11,159 @@ backend:
 media_folder: "src/assets/uploads"
 public_folder: "/assets/uploads"
 
+editor:
+  preview: false
+
 collections:
-  - name: "settings"
-    label: "网站内容"
+  - name: "pages"
+    label: "页面内容"
+    description: "按页面修改官网文字和图片。前台网站仍然是英文，建议这里填写英文内容。"
     files:
       - name: "home"
-        label: "首页"
+        label: "01 首页"
         file: "src/_data/home.json"
         format: "json"
         fields:
-          - label: "搜索引擎信息"
-            name: "seo"
+          - label: "第一屏：大标题和背景图"
+            name: "hero"
+            widget: "object"
+            hint: "首页最上方的大图区域，是客户打开网站第一眼看到的内容。"
+            fields:
+              - { label: "背景图片", name: "image", widget: "image" }
+              - { label: "主标题", name: "title", widget: "string" }
+              - { label: "副标题", name: "subtitle", widget: "text" }
+              - { label: "小标题", name: "eyebrow", widget: "string", required: false }
+              - { label: "主按钮文字", name: "primary_button_label", widget: "string" }
+              - { label: "主按钮链接", name: "primary_button_link", widget: "string" }
+              - { label: "副按钮文字", name: "secondary_button_label", widget: "string" }
+              - { label: "副按钮链接", name: "secondary_button_link", widget: "string" }
+              - label: "三条亮点数据"
+                name: "metrics"
+                widget: "list"
+                collapsed: true
+                minimize_collapsed: true
+                summary: "{{fields.value}}"
+                hint: "例如 Since 2005、CAD/CAM、Multi-line。"
+                fields:
+                  - { label: "重点文字", name: "value", widget: "string" }
+                  - { label: "说明文字", name: "label", widget: "string" }
+              - { label: "图片说明（可不改）", name: "image_alt", widget: "string", required: false }
+
+          - label: "首页：三条服务亮点"
+            name: "service_overview"
+            widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: "{{fields.number}} - {{fields.title}}"
+            fields:
+              - { label: "编号", name: "number", widget: "string" }
+              - { label: "标题", name: "title", widget: "string" }
+              - { label: "描述", name: "description", widget: "text" }
+
+          - label: "首页：关于我们预览"
+            name: "about"
+            widget: "object"
+            collapsed: true
+            hint: "这是首页中间的 About 简短介绍，不是 About 独立页面。"
+            fields:
+              - { label: "小标题", name: "eyebrow", widget: "string", required: false }
+              - { label: "标题", name: "title", widget: "string" }
+              - label: "介绍段落"
+                name: "paragraphs"
+                widget: "list"
+                collapsed: true
+                minimize_collapsed: true
+                field: { label: "段落内容", name: "paragraph", widget: "text" }
+              - { label: "按钮文字", name: "button_label", widget: "string" }
+              - { label: "按钮链接", name: "button_link", widget: "string" }
+              - label: "右侧信息卡片"
+                name: "facts"
+                widget: "list"
+                collapsed: true
+                minimize_collapsed: true
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "标题", name: "title", widget: "string" }
+                  - { label: "描述", name: "description", widget: "text" }
+
+          - label: "首页：产品区域标题"
+            name: "product_section"
+            widget: "object"
+            collapsed: true
+            hint: "这里只改首页产品区域的标题和说明。具体产品请去左侧“产品详情”里修改。"
+            fields:
+              - { label: "小标题", name: "eyebrow", widget: "string", required: false }
+              - { label: "标题", name: "title", widget: "string" }
+              - { label: "描述", name: "description", widget: "text" }
+              - { label: "首页显示几个产品", name: "max_items", widget: "number", value_type: "int", min: 1, max: 24 }
+
+          - label: "首页：能力介绍"
+            name: "capabilities"
             widget: "object"
             collapsed: true
             fields:
-              - { label: "浏览器标题", name: "title", widget: "string" }
-              - { label: "页面描述", name: "description", widget: "text" }
-          - label: "品牌信息"
+              - { label: "小标题", name: "eyebrow", widget: "string", required: false }
+              - { label: "标题", name: "title", widget: "string" }
+              - { label: "描述", name: "description", widget: "text" }
+              - label: "能力项目"
+                name: "items"
+                widget: "list"
+                collapsed: true
+                minimize_collapsed: true
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "标题", name: "title", widget: "string" }
+                  - { label: "描述", name: "description", widget: "text" }
+
+          - label: "首页：工作流程"
+            name: "workflow"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "小标题", name: "eyebrow", widget: "string", required: false }
+              - { label: "标题", name: "title", widget: "string" }
+              - label: "流程步骤"
+                name: "steps"
+                widget: "list"
+                collapsed: true
+                minimize_collapsed: true
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "步骤标题", name: "title", widget: "string" }
+                  - { label: "步骤描述", name: "description", widget: "text" }
+
+          - label: "首页：合作优势"
+            name: "quality"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "小标题", name: "eyebrow", widget: "string", required: false }
+              - { label: "标题", name: "title", widget: "string" }
+              - label: "优势列表"
+                name: "items"
+                widget: "list"
+                collapsed: true
+                minimize_collapsed: true
+                field: { label: "优势内容", name: "item", widget: "string" }
+
+          - label: "首页：联系方式"
+            name: "contact"
+            widget: "object"
+            collapsed: true
+            hint: "首页底部和询盘区域会使用这些联系方式。"
+            fields:
+              - { label: "小标题", name: "eyebrow", widget: "string", required: false }
+              - { label: "标题", name: "title", widget: "string" }
+              - { label: "描述", name: "description", widget: "text" }
+              - { label: "电话", name: "phone", widget: "string" }
+              - { label: "电话链接", name: "phone_link", widget: "string", hint: "格式示例：tel:+8615818747471" }
+              - { label: "邮箱", name: "email", widget: "string" }
+              - { label: "邮箱链接", name: "email_link", widget: "string", hint: "格式示例：mailto:646483619@qq.com" }
+              - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+              - { label: "WhatsApp 链接", name: "whatsapp_link", widget: "string", hint: "格式示例：https://wa.me/8615818747471" }
+              - { label: "地址", name: "address", widget: "text" }
+
+          - label: "全站：品牌和顶部按钮"
             name: "brand"
             widget: "object"
             collapsed: true
@@ -35,121 +171,16 @@ collections:
               - { label: "品牌名称", name: "name", widget: "string" }
               - { label: "品牌副标题", name: "tagline", widget: "string" }
               - { label: "Logo", name: "logo", widget: "image" }
-          - label: "导航栏"
+
+          - label: "全站：导航按钮"
             name: "nav"
             widget: "object"
             collapsed: true
             fields:
-              - { label: "按钮文字", name: "send_case_label", widget: "string" }
-              - { label: "按钮链接", name: "send_case_link", widget: "string" }
-          - label: "首页大图区域"
-            name: "hero"
-            widget: "object"
-            fields:
-              - { label: "背景图片", name: "image", widget: "image" }
-              - { label: "图片说明", name: "image_alt", widget: "string" }
-              - { label: "小标题", name: "eyebrow", widget: "string" }
-              - { label: "主标题", name: "title", widget: "string" }
-              - { label: "副标题", name: "subtitle", widget: "text" }
-              - { label: "主按钮文字", name: "primary_button_label", widget: "string" }
-              - { label: "主按钮链接", name: "primary_button_link", widget: "string" }
-              - { label: "副按钮文字", name: "secondary_button_label", widget: "string" }
-              - { label: "副按钮链接", name: "secondary_button_link", widget: "string" }
-              - label: "亮点数据"
-                name: "metrics"
-                widget: "list"
-                summary: "{{fields.value}}"
-                fields:
-                  - { label: "重点文字", name: "value", widget: "string" }
-                  - { label: "说明文字", name: "label", widget: "string" }
-          - label: "服务概览"
-            name: "service_overview"
-            widget: "list"
-            summary: "{{fields.number}} - {{fields.title}}"
-            fields:
-              - { label: "编号", name: "number", widget: "string" }
-              - { label: "标题", name: "title", widget: "string" }
-              - { label: "描述", name: "description", widget: "text" }
-          - label: "关于我们区域"
-            name: "about"
-            widget: "object"
-            fields:
-              - { label: "小标题", name: "eyebrow", widget: "string" }
-              - { label: "标题", name: "title", widget: "string" }
-              - label: "段落"
-                name: "paragraphs"
-                widget: "list"
-                field: { label: "段落内容", name: "paragraph", widget: "text" }
-              - { label: "按钮文字", name: "button_label", widget: "string" }
-              - { label: "按钮链接", name: "button_link", widget: "string" }
-              - label: "信息卡片"
-                name: "facts"
-                widget: "list"
-                summary: "{{fields.title}}"
-                fields:
-                  - { label: "标题", name: "title", widget: "string" }
-                  - { label: "描述", name: "description", widget: "text" }
-          - label: "首页产品区域"
-            name: "product_section"
-            widget: "object"
-            collapsed: true
-            fields:
-              - { label: "小标题", name: "eyebrow", widget: "string" }
-              - { label: "标题", name: "title", widget: "string" }
-              - { label: "描述", name: "description", widget: "text" }
-              - { label: "首页显示产品数量", name: "max_items", widget: "number", value_type: "int", min: 1, max: 24 }
-          - label: "能力介绍"
-            name: "capabilities"
-            widget: "object"
-            fields:
-              - { label: "小标题", name: "eyebrow", widget: "string" }
-              - { label: "标题", name: "title", widget: "string" }
-              - { label: "描述", name: "description", widget: "text" }
-              - label: "能力项目"
-                name: "items"
-                widget: "list"
-                summary: "{{fields.title}}"
-                fields:
-                  - { label: "标题", name: "title", widget: "string" }
-                  - { label: "描述", name: "description", widget: "text" }
-          - label: "工作流程"
-            name: "workflow"
-            widget: "object"
-            fields:
-              - { label: "小标题", name: "eyebrow", widget: "string" }
-              - { label: "标题", name: "title", widget: "string" }
-              - label: "步骤"
-                name: "steps"
-                widget: "list"
-                summary: "{{fields.title}}"
-                fields:
-                  - { label: "步骤标题", name: "title", widget: "string" }
-                  - { label: "步骤描述", name: "description", widget: "text" }
-          - label: "合作优势"
-            name: "quality"
-            widget: "object"
-            fields:
-              - { label: "小标题", name: "eyebrow", widget: "string" }
-              - { label: "标题", name: "title", widget: "string" }
-              - label: "优势列表"
-                name: "items"
-                widget: "list"
-                field: { label: "优势内容", name: "item", widget: "string" }
-          - label: "联系方式"
-            name: "contact"
-            widget: "object"
-            fields:
-              - { label: "小标题", name: "eyebrow", widget: "string" }
-              - { label: "标题", name: "title", widget: "string" }
-              - { label: "描述", name: "description", widget: "text" }
-              - { label: "电话", name: "phone", widget: "string" }
-              - { label: "电话链接", name: "phone_link", widget: "string" }
-              - { label: "邮箱", name: "email", widget: "string" }
-              - { label: "邮箱链接", name: "email_link", widget: "string" }
-              - { label: "WhatsApp", name: "whatsapp", widget: "string" }
-              - { label: "WhatsApp 链接", name: "whatsapp_link", widget: "string" }
-              - { label: "地址", name: "address", widget: "text" }
-          - label: "页脚"
+              - { label: "右上角按钮文字", name: "send_case_label", widget: "string" }
+              - { label: "右上角按钮链接", name: "send_case_link", widget: "string" }
+
+          - label: "全站：页脚"
             name: "footer"
             widget: "object"
             collapsed: true
@@ -158,40 +189,197 @@ collections:
               - { label: "公司法定名称", name: "company_legal_name", widget: "string" }
               - { label: "版权文字", name: "copyright", widget: "string" }
 
+          - label: "高级设置：SEO"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            hint: "搜索引擎和浏览器标题使用。一般不需要频繁修改。"
+            fields:
+              - { label: "浏览器标题", name: "title", widget: "string" }
+              - { label: "页面描述", name: "description", widget: "text" }
+
+      - name: "about"
+        label: "02 About 页面"
+        file: "src/_data/aboutPage.json"
+        format: "json"
+        fields:
+          - label: "页面顶部：标题和背景图"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "背景图片", name: "image", widget: "image" }
+              - { label: "小标题", name: "eyebrow", widget: "string", required: false }
+              - { label: "主标题", name: "title", widget: "string" }
+              - { label: "副标题", name: "subtitle", widget: "text" }
+              - { label: "图片说明（可不改）", name: "image_alt", widget: "string", required: false }
+
+          - label: "公司介绍"
+            name: "introduction"
+            widget: "object"
+            fields:
+              - { label: "小标题", name: "eyebrow", widget: "string", required: false }
+              - { label: "标题", name: "title", widget: "string" }
+              - label: "介绍段落"
+                name: "paragraphs"
+                widget: "list"
+                collapsed: true
+                minimize_collapsed: true
+                field: { label: "段落内容", name: "paragraph", widget: "text" }
+
+          - label: "公司信息卡片"
+            name: "facts"
+            widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "项目名", name: "label", widget: "string" }
+              - { label: "内容", name: "value", widget: "string" }
+
+          - label: "工厂图片区域"
+            name: "factory"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "小标题", name: "eyebrow", widget: "string", required: false }
+              - { label: "标题", name: "title", widget: "string" }
+              - { label: "描述", name: "description", widget: "text" }
+              - label: "工厂图片"
+                name: "gallery"
+                widget: "list"
+                collapsed: true
+                minimize_collapsed: true
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "图片", name: "image", widget: "image" }
+                  - { label: "图片标题", name: "title", widget: "string" }
+                  - { label: "图片说明", name: "caption", widget: "text" }
+                  - { label: "图片 Alt 说明（可不改）", name: "alt", widget: "string", required: false }
+
+          - label: "主要业务"
+            name: "business"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "小标题", name: "eyebrow", widget: "string", required: false }
+              - { label: "标题", name: "title", widget: "string" }
+              - label: "业务项目"
+                name: "items"
+                widget: "list"
+                collapsed: true
+                minimize_collapsed: true
+                summary: "{{fields.number}} - {{fields.title}}"
+                fields:
+                  - { label: "编号", name: "number", widget: "string" }
+                  - { label: "标题", name: "title", widget: "string" }
+                  - { label: "描述", name: "description", widget: "text" }
+
+          - label: "底部引导按钮"
+            name: "cta"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "小标题", name: "eyebrow", widget: "string", required: false }
+              - { label: "标题", name: "title", widget: "string" }
+              - { label: "按钮文字", name: "button_label", widget: "string" }
+              - { label: "按钮链接", name: "button_link", widget: "string" }
+
+          - label: "高级设置：SEO"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "浏览器标题", name: "title", widget: "string" }
+              - { label: "页面描述", name: "description", widget: "text" }
+
+      - name: "products_page"
+        label: "03 Products 页面"
+        file: "src/_data/productsPage.json"
+        format: "json"
+        fields:
+          - label: "页面顶部：标题和背景图"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "背景图片", name: "image", widget: "image" }
+              - { label: "小标题", name: "eyebrow", widget: "string", required: false }
+              - { label: "主标题", name: "title", widget: "string" }
+              - { label: "副标题", name: "subtitle", widget: "text" }
+              - { label: "图片说明（可不改）", name: "image_alt", widget: "string", required: false }
+
+          - label: "产品列表标题"
+            name: "product_list"
+            widget: "object"
+            fields:
+              - { label: "小标题", name: "eyebrow", widget: "string", required: false }
+              - { label: "标题", name: "title", widget: "string" }
+              - { label: "描述", name: "description", widget: "text" }
+
+          - label: "询盘表单文案"
+            name: "inquiry"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "小标题", name: "eyebrow", widget: "string", required: false }
+              - { label: "标题", name: "title", widget: "string" }
+              - { label: "说明", name: "description", widget: "text" }
+              - { label: "姓名字段名", name: "name_label", widget: "string" }
+              - { label: "邮箱字段名", name: "email_label", widget: "string" }
+              - { label: "产品分类字段名", name: "category_label", widget: "string" }
+              - { label: "产品分类默认提示", name: "category_placeholder", widget: "string" }
+              - { label: "数量字段名", name: "quantity_label", widget: "string" }
+              - { label: "数量提示", name: "quantity_placeholder", widget: "string" }
+              - { label: "留言字段名", name: "message_label", widget: "string" }
+              - { label: "留言提示", name: "message_placeholder", widget: "text" }
+              - { label: "按钮文字", name: "button_label", widget: "string" }
+
+          - label: "高级设置：SEO"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "浏览器标题", name: "title", widget: "string" }
+              - { label: "页面描述", name: "description", widget: "text" }
+
   - name: "products"
-    label: "产品管理"
+    label: "产品详情"
     label_singular: "产品"
+    description: "新增或修改每个产品分类。产品会自动出现在首页、Products 页面和相关产品选择里。"
     folder: "src/products"
     create: true
     slug: "{{slug}}"
     extension: "json"
     format: "json"
     identifier_field: "title"
+    summary: "{{order}}. {{title}}"
+    sortable_fields: ["order", "title"]
+    view_groups:
+      - label: "产品分类"
+        field: "category"
     fields:
-      - { label: "显示排序", name: "order", widget: "number", value_type: "int", min: 1 }
+      - { label: "显示排序", name: "order", widget: "number", value_type: "int", min: 1, hint: "数字越小，显示越靠前。" }
       - { label: "产品名称", name: "title", widget: "string" }
-      - { label: "网址别名", name: "slug", widget: "string", hint: "只能使用小写英文、数字和中横线，例如 zirconia-crowns。" }
-      - { label: "产品卡片缩写", name: "icon", widget: "string", hint: "用于产品卡片的小图标文字，例如 AC 或 IM。" }
-      - { label: "分类/小标题", name: "category", widget: "string" }
-      - { label: "列表页简短描述", name: "short_description", widget: "text" }
-      - { label: "详情页产品介绍", name: "description", widget: "text" }
+      - { label: "网址英文名", name: "slug", widget: "string", hint: "只用小写英文、数字和中横线。已上线产品不要随便改，否则旧链接可能打不开。" }
+      - { label: "所属分类", name: "category", widget: "string", hint: "例如 Fixed Restorations、Implant Solutions。" }
+      - { label: "列表页简短描述", name: "short_description", widget: "text", hint: "显示在首页和 Products 页面产品卡片里。" }
+      - { label: "详情页产品介绍", name: "description", widget: "text", hint: "显示在产品详情页顶部。" }
       - { label: "产品卡片图片", name: "card_image", widget: "image" }
-      - { label: "产品卡片图片说明", name: "card_alt", widget: "string" }
-      - label: "标签"
-        name: "tags"
-        widget: "list"
-        field: { label: "标签", name: "tag", widget: "string" }
-      - label: "轮播图片"
+      - label: "详情页轮播图片"
         name: "gallery"
         widget: "list"
+        collapsed: true
+        minimize_collapsed: true
         summary: "{{fields.caption}}"
+        hint: "建议至少放 3 张图。第一张通常是主图，后面可以放细节图或使用场景图。"
         fields:
           - { label: "图片", name: "image", widget: "image" }
-          - { label: "图片说明", name: "alt", widget: "string" }
           - { label: "图片下方文字", name: "caption", widget: "text" }
-      - label: "产品详情"
+          - { label: "图片 Alt 说明（可不改）", name: "alt", widget: "string", required: false }
+      - label: "产品详情参数"
         name: "details"
         widget: "list"
+        collapsed: true
+        minimize_collapsed: true
         summary: "{{fields.label}}"
         fields:
           - { label: "项目名", name: "label", widget: "string" }
@@ -205,15 +393,25 @@ collections:
         display_fields: ["title"]
         multiple: true
         required: false
+        hint: "选择后会显示在产品详情页右侧。"
       - label: "询盘表单文案"
         name: "inquiry"
         widget: "object"
+        collapsed: true
         fields:
           - { label: "询盘标题", name: "title", widget: "string" }
           - { label: "询盘说明", name: "description", widget: "text" }
           - { label: "数量输入框提示", name: "quantity_placeholder", widget: "string" }
           - { label: "留言输入框提示", name: "message_placeholder", widget: "string" }
-      - label: "搜索引擎信息"
+      - label: "标签"
+        name: "tags"
+        widget: "list"
+        collapsed: true
+        minimize_collapsed: true
+        field: { label: "标签", name: "tag", widget: "string" }
+      - { label: "产品卡片缩写", name: "icon", widget: "string", hint: "产品卡片上的两个字母，例如 AC、IM。可不常改。" }
+      - { label: "产品卡片图片说明（可不改）", name: "card_alt", widget: "string", required: false }
+      - label: "高级设置：SEO"
         name: "seo"
         widget: "object"
         collapsed: true

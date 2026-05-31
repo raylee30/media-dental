@@ -1,0 +1,32 @@
+{
+  "seo": {
+    "title": "Products | MEIJIA DENTAL Dental Laboratory Restorations",
+    "description": "Explore MEIJIA DENTAL product categories including all-ceramic restorations, PFM, implant series, cast partial frameworks, acrylic dentures, retainers and orthodontics."
+  },
+  "hero": {
+    "image": "/assets/product-all-ceramic.jpg",
+    "image_alt": "Dental restoration product categories made by MEIJIA DENTAL",
+    "eyebrow": "Product Center",
+    "title": "Dental restorations and appliances for daily clinical workflows.",
+    "subtitle": "Browse product categories, then send case details through the inquiry form for material advice, lead time and sample order support."
+  },
+  "product_list": {
+    "eyebrow": "Product Categories",
+    "title": "Choose a product category to view the dedicated detail page.",
+    "description": "Each product page includes a category introduction, product image, product details, related products and an inquiry form for quotations."
+  },
+  "inquiry": {
+    "eyebrow": "Inquiry Form",
+    "title": "Send product details for quotation and case support.",
+    "description": "Share the category, material, quantity, shade, implant system if applicable and expected delivery date. Our team will reply by email or WhatsApp.",
+    "name_label": "Name",
+    "email_label": "Email",
+    "category_label": "Product Category",
+    "category_placeholder": "Select a category",
+    "quantity_label": "Quantity / Case Type",
+    "quantity_placeholder": "Example: 12 zirconia crowns",
+    "message_label": "Message",
+    "message_placeholder": "Material, shade, delivery date, implant system or special notes",
+    "button_label": "Send Inquiry"
+  }
+}

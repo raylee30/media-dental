@@ -6,10 +6,10 @@ permalink: /products.html
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Products | MEIJIA DENTAL Dental Laboratory Restorations</title>
-    <meta name="description" content="Explore MEIJIA DENTAL product categories including all-ceramic restorations, PFM, implant series, cast partial frameworks, acrylic dentures, retainers and orthodontics." />
+    <title>{{ productsPage.seo.title }}</title>
+    <meta name="description" content="{{ productsPage.seo.description }}" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/styles.css?v=content-cms" />
+    <link rel="stylesheet" href="/styles.css?v=easy-cms" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -33,12 +33,12 @@ permalink: /products.html
 
     <main>
       <section class="page-hero product-hero">
-        <img src="{{ products[0].card_image }}" alt="Dental restoration product categories made by MEIJIA DENTAL" />
+        <img src="{{ productsPage.hero.image }}" alt="{{ productsPage.hero.image_alt }}" />
         <div class="page-hero-overlay"></div>
         <div class="page-hero-content">
-          <p class="eyebrow">Product Center</p>
-          <h1>Dental restorations and appliances for daily clinical workflows.</h1>
-          <p>Browse product categories, then send case details through the inquiry form for material advice, lead time and sample order support.</p>
+          <p class="eyebrow">{{ productsPage.hero.eyebrow }}</p>
+          <h1>{{ productsPage.hero.title }}</h1>
+          <p>{{ productsPage.hero.subtitle }}</p>
         </div>
       </section>
 
@@ -50,9 +50,9 @@ permalink: /products.html
 
       <section class="section product-section">
         <div class="section-heading">
-          <p class="eyebrow">Product Categories</p>
-          <h2>Choose a product category to view the dedicated detail page.</h2>
-          <p>Each product page includes a category introduction, product image, product details, related products and an inquiry form for quotations.</p>
+          <p class="eyebrow">{{ productsPage.product_list.eyebrow }}</p>
+          <h2>{{ productsPage.product_list.title }}</h2>
+          <p>{{ productsPage.product_list.description }}</p>
         </div>
         <div class="product-grid">
           {% for product in products %}
@@ -70,29 +70,29 @@ permalink: /products.html
 
       <section class="section inquiry-section" id="inquiry">
         <div class="section-copy">
-          <p class="eyebrow">Inquiry Form</p>
-          <h2>Send product details for quotation and case support.</h2>
-          <p>Share the category, material, quantity, shade, implant system if applicable and expected delivery date. Our team will reply by email or WhatsApp.</p>
+          <p class="eyebrow">{{ productsPage.inquiry.eyebrow }}</p>
+          <h2>{{ productsPage.inquiry.title }}</h2>
+          <p>{{ productsPage.inquiry.description }}</p>
           <div class="inquiry-contact">
             <a href="{{ home.contact.email_link }}">{{ home.contact.email }}</a>
             <a href="{{ home.contact.whatsapp_link }}">WhatsApp: {{ home.contact.whatsapp }}</a>
           </div>
         </div>
         <form class="inquiry-form" action="{{ home.contact.email_link }}" method="post" enctype="text/plain">
-          <label>Name<input type="text" name="Name" autocomplete="name" required /></label>
-          <label>Email<input type="email" name="Email" autocomplete="email" required /></label>
+          <label>{{ productsPage.inquiry.name_label }}<input type="text" name="Name" autocomplete="name" required /></label>
+          <label>{{ productsPage.inquiry.email_label }}<input type="email" name="Email" autocomplete="email" required /></label>
           <label>
-            Product Category
+            {{ productsPage.inquiry.category_label }}
             <select name="Product Category" required>
-              <option value="">Select a category</option>
+              <option value="">{{ productsPage.inquiry.category_placeholder }}</option>
               {% for product in products %}
                 <option>{{ product.title }}</option>
               {% endfor %}
             </select>
           </label>
-          <label>Quantity / Case Type<input type="text" name="Quantity or Case Type" placeholder="Example: 12 zirconia crowns" /></label>
-          <label class="form-wide">Message<textarea name="Message" rows="5" placeholder="Material, shade, delivery date, implant system or special notes"></textarea></label>
-          <button class="button button-teal" type="submit">Send Inquiry</button>
+          <label>{{ productsPage.inquiry.quantity_label }}<input type="text" name="Quantity or Case Type" placeholder="{{ productsPage.inquiry.quantity_placeholder }}" /></label>
+          <label class="form-wide">{{ productsPage.inquiry.message_label }}<textarea name="Message" rows="5" placeholder="{{ productsPage.inquiry.message_placeholder }}"></textarea></label>
+          <button class="button button-teal" type="submit">{{ productsPage.inquiry.button_label }}</button>
         </form>
       </section>
     </main>
@@ -102,6 +102,6 @@ permalink: /products.html
       <nav aria-label="Footer navigation"><a href="/about">About</a><a href="/products">Products</a><a href="/#workflow">Workflow</a><a href="/#contact">Contact</a></nav>
       <p>{{ home.footer.copyright }}</p>
     </footer>
-    <script src="/script.js?v=content-cms"></script>
+    <script src="/script.js?v=easy-cms"></script>
   </body>
 </html>

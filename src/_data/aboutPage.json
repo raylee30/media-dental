@@ -1,0 +1,96 @@
+{
+  "seo": {
+    "title": "About MEIJIA DENTAL | Shenzhen Bao'an Dental Laboratory",
+    "description": "Learn about MEIJIA DENTAL, a Hong Kong originated dental laboratory with a Shenzhen Bao'an production base serving clinics, distributors and partner labs."
+  },
+  "hero": {
+    "image": "/assets/about-baoan-exterior.jpg",
+    "image_alt": "Modern Shenzhen Bao'an dental laboratory production base exterior",
+    "eyebrow": "About MEIJIA DENTAL",
+    "title": "Hong Kong originated, Shenzhen Bao'an based, built for reliable dental manufacturing.",
+    "subtitle": "MEIJIA DENTAL serves clinics, distributors and dental laboratories with disciplined restoration production, practical communication and steady case support."
+  },
+  "introduction": {
+    "eyebrow": "Company Introduction",
+    "title": "A focused dental laboratory for fixed, implant, removable and orthodontic work.",
+    "paragraphs": [
+      "MEIJIA DENTAL originated in Hong Kong and developed its production capability in Shenzhen. Since establishing Shenzhen production in 2005, the company has focused on dependable dental restorations for everyday clinical needs and partner laboratory workflows.",
+      "The Bao'an factory is organized around digital case intake, CAD design, material processing, technician finishing, quality inspection and dispatch. Each case is reviewed for fit, morphology, contact, occlusion, shade and surface finish before delivery."
+    ]
+  },
+  "facts": [
+    {
+      "label": "Origin",
+      "value": "Hong Kong"
+    },
+    {
+      "label": "Established Production",
+      "value": "2005"
+    },
+    {
+      "label": "Factory Location",
+      "value": "Shenzhen Bao'an"
+    },
+    {
+      "label": "Service Scope",
+      "value": "Clinics, distributors and partner labs"
+    }
+  ],
+  "factory": {
+    "eyebrow": "Bao'an Factory",
+    "title": "Clean production spaces for precise, repeatable restoration work.",
+    "description": "The factory layout supports a clear path from digital file review to final inspection, helping technicians control consistency across fixed restorations, implant components and removable appliances.",
+    "gallery": [
+      {
+        "image": "/assets/about-baoan-production.jpg",
+        "alt": "Shenzhen Bao'an dental laboratory digital production area with CAD/CAM equipment",
+        "title": "Digital Production",
+        "caption": "CAD/CAM design, milling, sintering and technician finishing are coordinated in a clean workflow."
+      },
+      {
+        "image": "/assets/about-baoan-exterior.jpg",
+        "alt": "Shenzhen Bao'an dental laboratory exterior and reception entrance",
+        "title": "Bao'an Base",
+        "caption": "A practical Shenzhen production base for domestic and international dental partners."
+      },
+      {
+        "image": "/assets/about-baoan-quality.jpg",
+        "alt": "Dental laboratory quality inspection and dispatch area in Shenzhen Bao'an",
+        "title": "Quality Inspection",
+        "caption": "Finished cases are checked, documented and packed before dispatch."
+      }
+    ]
+  },
+  "business": {
+    "eyebrow": "Main Business",
+    "title": "Core product lines for daily clinical demand.",
+    "items": [
+      {
+        "number": "01",
+        "title": "Fixed Restorations",
+        "description": "All-ceramic crowns, zirconia restorations, veneers, inlays, onlays, PFM crowns and bridges."
+      },
+      {
+        "number": "02",
+        "title": "Implant Solutions",
+        "description": "Implant crowns, custom abutments, screw-retained restorations and implant case support."
+      },
+      {
+        "number": "03",
+        "title": "Removable Prosthetics",
+        "description": "Cast partial frameworks, acrylic full dentures, partial dentures, repairs and related lab work."
+      },
+      {
+        "number": "04",
+        "title": "Orthodontic Appliances",
+        "description": "Clear retainers, Hawley retainers and auxiliary orthodontic appliances for treatment maintenance."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Work With Us",
+    "title": "Send a case file or product question to our team.",
+    "button_label": "Contact MEIJIA DENTAL",
+    "button_link": "/#contact"
+  }
+}
