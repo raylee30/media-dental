@@ -1,0 +1,13 @@
+{
+  "name": "meijia-dental-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "eleventy --serve --input=src --output=_site",
+    "build": "eleventy --input=src --output=_site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}
