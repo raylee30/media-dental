@@ -1,5 +1,159 @@
 {
-  "title": "Reliable digital restorations for clinics and labs worldwide.",
-  "subtitle": "MEIJIA DENTAL combines Hong Kong inspired prosthodontic standards with Shenzhen manufacturing efficiency to deliver precise, consistent and cost-effective dental restorations.",
-  "hero_image": "/assets/meijia-lab-hero.jpg"
+  "seo": {
+    "title": "MEIJIA DENTAL | Digital Dental Laboratory in Shenzhen",
+    "description": "MEIJIA DENTAL is a Shenzhen dental laboratory providing all-ceramic, PFM, implant, removable and orthodontic restoration solutions for dental clinics and laboratories."
+  },
+  "brand": {
+    "name": "MEIJIA DENTAL",
+    "tagline": "Digital Dental Laboratory",
+    "logo": "/assets/logo-mark.svg"
+  },
+  "nav": {
+    "send_case_label": "Send Case",
+    "send_case_link": "mailto:646483619@qq.com"
+  },
+  "hero": {
+    "image": "/assets/meijia-lab-hero.jpg",
+    "image_alt": "Modern dental laboratory with CAD/CAM equipment and ceramic restorations",
+    "eyebrow": "Shenzhen based dental restoration partner",
+    "title": "Reliable digital restorations for clinics and labs worldwide.",
+    "subtitle": "MEIJIA DENTAL combines Hong Kong inspired prosthodontic standards with Shenzhen manufacturing efficiency to deliver precise, consistent and cost-effective dental restorations.",
+    "primary_button_label": "Explore Products",
+    "primary_button_link": "/products",
+    "secondary_button_label": "Request a Quote",
+    "secondary_button_link": "#contact",
+    "metrics": [
+      {
+        "value": "Since 2005",
+        "label": "Shenzhen production"
+      },
+      {
+        "value": "CAD/CAM",
+        "label": "Digital workflow"
+      },
+      {
+        "value": "Multi-line",
+        "label": "Fixed, implant and removable"
+      }
+    ]
+  },
+  "service_overview": [
+    {
+      "number": "01",
+      "title": "Precision fit",
+      "description": "Designed for predictable seating, occlusion and shade communication."
+    },
+    {
+      "number": "02",
+      "title": "Stable turnaround",
+      "description": "Case intake, production tracking and final inspection are handled in one workflow."
+    },
+    {
+      "number": "03",
+      "title": "Clinic ready support",
+      "description": "English communication for digital files, prescriptions and remake prevention."
+    }
+  ],
+  "about": {
+    "eyebrow": "About MEIJIA DENTAL",
+    "title": "Built from craft experience, upgraded for digital dentistry.",
+    "paragraphs": [
+      "MEIJIA DENTAL originated in Hong Kong and moved its production base to Shenzhen in 2005. The company has kept a practical promise from day one: make high-quality restorations accessible through disciplined technique, responsive service and fair value.",
+      "Our team supports dental clinics, distributors and partner laboratories with fixed restorations, implant solutions, removable prosthetics and orthodontic appliances. Every case is reviewed around fit, morphology, contact, occlusion, shade and finishing before dispatch."
+    ],
+    "button_label": "Read the company profile",
+    "button_link": "/about",
+    "facts": [
+      {
+        "title": "Production Focus",
+        "description": "All-ceramic, PFM, implant, removable and orthodontic appliances"
+      },
+      {
+        "title": "Service Model",
+        "description": "Digital case files, conventional impressions and online order support"
+      },
+      {
+        "title": "Quality Mindset",
+        "description": "Technician-led checks from preparation review to final polish"
+      }
+    ]
+  },
+  "product_section": {
+    "eyebrow": "Product Center",
+    "title": "Restoration solutions for everyday clinical demand.",
+    "description": "A focused product portfolio covers the categories from the original company page while presenting them clearly for English-speaking buyers.",
+    "max_items": 6
+  },
+  "capabilities": {
+    "eyebrow": "Capabilities",
+    "title": "Digital tools with technician judgment behind every step.",
+    "description": "Technology improves speed and repeatability, but restoration quality still depends on careful human review. MEIJIA DENTAL pairs scan-based design and milling workflows with experienced ceramic, metal and denture technicians.",
+    "items": [
+      {
+        "title": "CAD design",
+        "description": "Margin review, anatomy, contacts and occlusion planning."
+      },
+      {
+        "title": "CAM production",
+        "description": "Milling, sintering, pressing, casting and framework finishing."
+      },
+      {
+        "title": "Layering & staining",
+        "description": "Shade communication, surface texture and natural characterization."
+      },
+      {
+        "title": "Final inspection",
+        "description": "Fit, contact, occlusion, polish, labeling and packaging control."
+      }
+    ]
+  },
+  "workflow": {
+    "eyebrow": "Workflow",
+    "title": "A clear case path from prescription to delivery.",
+    "steps": [
+      {
+        "title": "Case submission",
+        "description": "Send STL files, scans, photos, shade notes or conventional impressions with a prescription."
+      },
+      {
+        "title": "Design confirmation",
+        "description": "Technicians review preparation, material choice, implant system details and timeline requirements."
+      },
+      {
+        "title": "Production",
+        "description": "Cases move through digital design, framework production, ceramic or acrylic finishing and internal checks."
+      },
+      {
+        "title": "Delivery support",
+        "description": "Finished restorations are packed with case information, and follow-up feedback is used to improve repeat cases."
+      }
+    ]
+  },
+  "quality": {
+    "eyebrow": "Why partner with us",
+    "title": "Consistent restorations, practical communication and responsible after-service.",
+    "items": [
+      "Material recommendations matched to the indication and budget.",
+      "Photo-based shade support for esthetic anterior cases.",
+      "Traceable case handling for online and offline orders.",
+      "Remake prevention through prescription and preparation review."
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Start with a case file, product question or sample order.",
+    "description": "Tell us the restoration type, material, shade, implant system if applicable, expected delivery date and any clinic-specific preferences. Our team will confirm the next step in English.",
+    "phone": "+86 15818747471",
+    "phone_link": "tel:+8615818747471",
+    "email": "646483619@qq.com",
+    "email_link": "mailto:646483619@qq.com",
+    "whatsapp": "+86 15818747471",
+    "whatsapp_link": "https://wa.me/8615818747471",
+    "address": "4F, A3 Building, Southern Pearl Technology Park, Yingtai Industrial Zone, Dalang, Longhua, Shenzhen, China"
+  },
+  "footer": {
+    "company_name": "MEIJIA DENTAL",
+    "company_legal_name": "Shenzhen Meijia Dental Technology Co., Ltd.",
+    "copyright": "Copyright 2026 MEIJIA DENTAL. All rights reserved."
+  }
 }

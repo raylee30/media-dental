@@ -1,0 +1,81 @@
+{
+  "order": 4,
+  "title": "Cast Partial Frameworks",
+  "slug": "cast-partial-frameworks",
+  "icon": "CR",
+  "category": "Removable Prosthetics",
+  "short_description": "Metal framework solutions for removable partial denture cases.",
+  "description": "Cast partial frameworks are produced for retention, support and patient comfort. Design review focuses on clasp placement, connector strength, tissue adaptation and a clean finish for removable partial denture cases.",
+  "card_image": "/assets/product-cast-partial.jpg",
+  "card_alt": "Cast partial denture framework",
+  "tags": [
+    "Chrome cobalt frameworks",
+    "Clasps & connectors",
+    "RPD support",
+    "Framework finishing"
+  ],
+  "gallery": [
+    {
+      "image": "/assets/product-cast-partial.jpg",
+      "alt": "Cast partial denture framework",
+      "caption": "Framework design and finishing focused on retention, support and comfortable adaptation."
+    },
+    {
+      "image": "/assets/product-cast-partial-new-1.jpg",
+      "alt": "Upper cast partial denture framework on a dental model",
+      "caption": "Upper framework view showing connector design, retention zones and model adaptation."
+    },
+    {
+      "image": "/assets/product-cast-partial-new-2.jpg",
+      "alt": "Cast partial denture with metal framework and acrylic teeth",
+      "caption": "Cast partial denture example combining metal support with removable prosthetic finishing."
+    },
+    {
+      "image": "/assets/product-cast-partial-new-3.jpg",
+      "alt": "Vitallium cast partial framework detail",
+      "caption": "Metal framework detail showing clasp arms, mesh retention and polished finish."
+    },
+    {
+      "image": "/assets/product-cast-partial-detail.jpg",
+      "alt": "Close-up of chrome cobalt cast partial framework with clasps and rests",
+      "caption": "Detail view of clasps, rests, mesh retention and polished metal surfaces."
+    },
+    {
+      "image": "/assets/product-cast-partial-lab.jpg",
+      "alt": "Technician checking cast partial framework seating on a model",
+      "caption": "Seating review on the master model before finishing and delivery."
+    }
+  ],
+  "details": [
+    {
+      "label": "Applications",
+      "text": "Removable partial denture frameworks for bounded and free-end saddle cases."
+    },
+    {
+      "label": "Design",
+      "text": "Major connectors, clasps, rests, mesh retention and tissue-facing adaptation."
+    },
+    {
+      "label": "Checks",
+      "text": "Framework seating, clasp retention, polish quality and model adaptation."
+    },
+    {
+      "label": "Case Files",
+      "text": "Master model, bite registration, design instruction and tooth shade if required."
+    }
+  ],
+  "related_products": [
+    "acrylic-dentures",
+    "porcelain-fused-to-metal"
+  ],
+  "inquiry": {
+    "title": "Request framework quotation support.",
+    "description": "Send model information, design instruction, tooth shade and delivery requirements.",
+    "quantity_placeholder": "Example: 5 cast partial frameworks",
+    "message_placeholder": "Design instruction, model type or special notes"
+  },
+  "seo": {
+    "title": "Cast Partial Frameworks | MEIJIA DENTAL",
+    "description": "Cast partial denture frameworks from MEIJIA DENTAL for removable partial denture cases."
+  }
+}

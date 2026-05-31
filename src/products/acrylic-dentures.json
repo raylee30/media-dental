@@ -1,0 +1,81 @@
+{
+  "order": 5,
+  "title": "Acrylic Dentures",
+  "slug": "acrylic-dentures",
+  "icon": "AR",
+  "category": "Removable Prosthetics",
+  "short_description": "Full and partial acrylic denture production, finishing and repair support.",
+  "description": "Full and partial acrylic dentures are made for practical fit, stable tooth arrangement and smooth base finishing. MEIJIA DENTAL also supports repairs and repeat cases for clinics and partner laboratories.",
+  "card_image": "/assets/product-acrylic-dentures.jpg",
+  "card_alt": "Acrylic full and partial dentures",
+  "tags": [
+    "Full dentures",
+    "Partial dentures",
+    "Tooth arrangement",
+    "Denture repair"
+  ],
+  "gallery": [
+    {
+      "image": "/assets/product-acrylic-dentures.jpg",
+      "alt": "Acrylic full and partial dentures",
+      "caption": "Acrylic denture work with controlled setup, polished bases and clinic-ready finishing."
+    },
+    {
+      "image": "/assets/product-acrylic-dentures-new-1.jpg",
+      "alt": "Acrylic denture set on a clean white background",
+      "caption": "Additional denture view for tooth arrangement, base contour and polished finish."
+    },
+    {
+      "image": "/assets/product-acrylic-dentures-new-2.webp",
+      "alt": "Acrylic dentures with pink base and natural tooth setup",
+      "caption": "Full denture reference highlighting gingival color, tooth shape and bite setup."
+    },
+    {
+      "image": "/assets/product-acrylic-dentures-new-3.jpeg",
+      "alt": "Premium acrylic denture close-up with detailed base finish",
+      "caption": "Close-up denture image showing base characterization and smooth final polish."
+    },
+    {
+      "image": "/assets/product-acrylic-dentures-detail.jpg",
+      "alt": "Close-up of full and partial acrylic dentures with pink bases",
+      "caption": "Detail view of tooth arrangement, pink acrylic base and polished contours."
+    },
+    {
+      "image": "/assets/product-acrylic-dentures-lab.jpg",
+      "alt": "Technician polishing an acrylic denture base in a dental laboratory",
+      "caption": "Finishing scene for smooth base contours and clinic-ready polish."
+    }
+  ],
+  "details": [
+    {
+      "label": "Applications",
+      "text": "Complete dentures, acrylic partial dentures, immediate dentures and repairs."
+    },
+    {
+      "label": "Setup",
+      "text": "Tooth arrangement, bite relation, base contouring and gingival characterization."
+    },
+    {
+      "label": "Checks",
+      "text": "Occlusion, tissue surface, extension, polishing and packaging control."
+    },
+    {
+      "label": "Case Files",
+      "text": "Models, bite rim, shade, mould selection and try-in requirements."
+    }
+  ],
+  "related_products": [
+    "cast-partial-frameworks",
+    "retainers-orthodontics"
+  ],
+  "inquiry": {
+    "title": "Request denture quotation support.",
+    "description": "Send models, bite relation, shade, mould selection and expected delivery date.",
+    "quantity_placeholder": "Example: 2 full dentures",
+    "message_placeholder": "Shade, mould, try-in stage or notes"
+  },
+  "seo": {
+    "title": "Acrylic Dentures | MEIJIA DENTAL",
+    "description": "Full and partial acrylic dentures from MEIJIA DENTAL, including setup, finishing and repair support."
+  }
+}

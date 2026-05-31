@@ -1,6 +1,14 @@
 # MEIJIA DENTAL 11ty + Decap CMS
 
-This version keeps the existing static website structure and moves editable home page content into `src/_data/home.json`.
+This version keeps the existing visual design and moves editable content into CMS-friendly data files.
+
+- Home page content: `src/_data/home.json`
+- Product content: `src/products/*.json`
+- Product list page: `src/products.html`
+- Product detail template: `src/product.njk`
+- CMS config: `src/admin/config.yml`
+
+Editors can use `/admin/` to update the home page and add or edit products without touching HTML.
 
 ## Local Development
 

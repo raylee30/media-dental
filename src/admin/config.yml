@@ -19,12 +19,202 @@ collections:
         file: "src/_data/home.json"
         format: "json"
         fields:
-          - label: "Title"
-            name: "title"
-            widget: "string"
-          - label: "Subtitle"
-            name: "subtitle"
-            widget: "text"
-          - label: "Hero Image"
-            name: "hero_image"
-            widget: "image"
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Browser Title", name: "title", widget: "string" }
+              - { label: "Meta Description", name: "description", widget: "text" }
+          - label: "Brand"
+            name: "brand"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Brand Name", name: "name", widget: "string" }
+              - { label: "Tagline", name: "tagline", widget: "string" }
+              - { label: "Logo", name: "logo", widget: "image" }
+          - label: "Navigation"
+            name: "nav"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Send Case Label", name: "send_case_label", widget: "string" }
+              - { label: "Send Case Link", name: "send_case_link", widget: "string" }
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Hero Image", name: "image", widget: "image" }
+              - { label: "Hero Image Alt Text", name: "image_alt", widget: "string" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Primary Button Label", name: "primary_button_label", widget: "string" }
+              - { label: "Primary Button Link", name: "primary_button_link", widget: "string" }
+              - { label: "Secondary Button Label", name: "secondary_button_label", widget: "string" }
+              - { label: "Secondary Button Link", name: "secondary_button_link", widget: "string" }
+              - label: "Metrics"
+                name: "metrics"
+                widget: "list"
+                summary: "{{fields.value}}"
+                fields:
+                  - { label: "Value", name: "value", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+          - label: "Service Overview"
+            name: "service_overview"
+            widget: "list"
+            summary: "{{fields.number}} - {{fields.title}}"
+            fields:
+              - { label: "Number", name: "number", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "About Section"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+              - { label: "Button Label", name: "button_label", widget: "string" }
+              - { label: "Button Link", name: "button_link", widget: "string" }
+              - label: "Fact Cards"
+                name: "facts"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "Product Section"
+            name: "product_section"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Max Items On Home", name: "max_items", widget: "number", value_type: "int", min: 1, max: 24 }
+          - label: "Capabilities"
+            name: "capabilities"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "Workflow"
+            name: "workflow"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Steps"
+                name: "steps"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "Why Partner With Us"
+            name: "quality"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Bullet Items"
+                name: "items"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Phone", name: "phone", widget: "string" }
+              - { label: "Phone Link", name: "phone_link", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Email Link", name: "email_link", widget: "string" }
+              - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+              - { label: "WhatsApp Link", name: "whatsapp_link", widget: "string" }
+              - { label: "Address", name: "address", widget: "text" }
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Company Name", name: "company_name", widget: "string" }
+              - { label: "Legal Company Name", name: "company_legal_name", widget: "string" }
+              - { label: "Copyright", name: "copyright", widget: "string" }
+
+  - name: "products"
+    label: "Products"
+    folder: "src/products"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    identifier_field: "title"
+    fields:
+      - { label: "Display Order", name: "order", widget: "number", value_type: "int", min: 1 }
+      - { label: "Product Name", name: "title", widget: "string" }
+      - { label: "URL Slug", name: "slug", widget: "string", hint: "Use lowercase letters, numbers and hyphens only, for example zirconia-crowns." }
+      - { label: "Card Icon", name: "icon", widget: "string", hint: "Short text such as AC or IM." }
+      - { label: "Category / Eyebrow", name: "category", widget: "string" }
+      - { label: "Short Description", name: "short_description", widget: "text" }
+      - { label: "Detail Page Description", name: "description", widget: "text" }
+      - { label: "Card Image", name: "card_image", widget: "image" }
+      - { label: "Card Image Alt Text", name: "card_alt", widget: "string" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - label: "Gallery Images"
+        name: "gallery"
+        widget: "list"
+        summary: "{{fields.caption}}"
+        fields:
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Alt Text", name: "alt", widget: "string" }
+          - { label: "Caption", name: "caption", widget: "text" }
+      - label: "Product Details"
+        name: "details"
+        widget: "list"
+        summary: "{{fields.label}}"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "Text", name: "text", widget: "text" }
+      - label: "Related Products"
+        name: "related_products"
+        widget: "relation"
+        collection: "products"
+        search_fields: ["title", "slug"]
+        value_field: "slug"
+        display_fields: ["title"]
+        multiple: true
+        required: false
+      - label: "Inquiry Form Text"
+        name: "inquiry"
+        widget: "object"
+        fields:
+          - { label: "Inquiry Title", name: "title", widget: "string" }
+          - { label: "Inquiry Description", name: "description", widget: "text" }
+          - { label: "Quantity Placeholder", name: "quantity_placeholder", widget: "string" }
+          - { label: "Message Placeholder", name: "message_placeholder", widget: "string" }
+      - label: "SEO"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        fields:
+          - { label: "Browser Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }

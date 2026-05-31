@@ -1,0 +1,76 @@
+{
+  "order": 1,
+  "title": "All-Ceramic Restorations",
+  "slug": "all-ceramic-restorations",
+  "icon": "AC",
+  "category": "Fixed Restorations",
+  "short_description": "Metal-free zirconia, lithium disilicate and esthetic ceramic restoration solutions.",
+  "description": "Esthetic metal-free restorations for clinics that need natural translucency, controlled fit and dependable strength. This category covers zirconia crowns, lithium disilicate veneers and ceramic solutions for anterior and posterior cases.",
+  "card_image": "/assets/product-all-ceramic.jpg",
+  "card_alt": "All-ceramic crowns and veneers",
+  "tags": [
+    "Zirconia crowns",
+    "Lithium disilicate veneers",
+    "Inlays & onlays",
+    "Anterior esthetics"
+  ],
+  "gallery": [
+    {
+      "image": "/assets/product-all-ceramic.jpg",
+      "alt": "All-ceramic crowns and veneers on a dental model",
+      "caption": "Finished all-ceramic restorations with controlled shade, fit and surface characterization."
+    },
+    {
+      "image": "/assets/product-all-ceramic-new-1.jpg",
+      "alt": "All-ceramic dental crowns with natural translucent shade",
+      "caption": "Additional ceramic crown view showing shade transition and lifelike translucency."
+    },
+    {
+      "image": "/assets/product-all-ceramic-new-2.jpg",
+      "alt": "All-ceramic restoration detail on a dental model",
+      "caption": "Detail image of metal-free ceramic restorations prepared for clinical delivery."
+    },
+    {
+      "image": "/assets/product-all-ceramic-detail.jpg",
+      "alt": "Close-up of zirconia crowns and lithium disilicate veneers",
+      "caption": "Close-up view of ceramic translucency, margins and natural enamel texture."
+    },
+    {
+      "image": "/assets/product-all-ceramic-lab.jpg",
+      "alt": "Technician inspecting all-ceramic crowns in a dental laboratory",
+      "caption": "Lab inspection scene for shade, surface finish and fit before dispatch."
+    }
+  ],
+  "details": [
+    {
+      "label": "Applications",
+      "text": "Anterior esthetic cases, posterior crowns, veneers, inlays and onlays."
+    },
+    {
+      "label": "Materials",
+      "text": "Zirconia, multilayer zirconia and lithium disilicate ceramic options."
+    },
+    {
+      "label": "Workflow",
+      "text": "Digital margin review, CAD design, milling or pressing, sintering, staining and glazing."
+    },
+    {
+      "label": "Case Files",
+      "text": "STL files, impressions, shade photos and preparation notes are supported."
+    }
+  ],
+  "related_products": [
+    "porcelain-fused-to-metal",
+    "implant-series"
+  ],
+  "inquiry": {
+    "title": "Request all-ceramic quotation support.",
+    "description": "Send material, shade, quantity, case files and delivery requirements. Our team will reply by email or WhatsApp.",
+    "quantity_placeholder": "Example: 12 zirconia crowns",
+    "message_placeholder": "Material, shade, delivery date or special notes"
+  },
+  "seo": {
+    "title": "All-Ceramic Restorations | MEIJIA DENTAL",
+    "description": "All-ceramic dental restorations from MEIJIA DENTAL, including zirconia crowns, lithium disilicate veneers, inlays and onlays."
+  }
+}

@@ -3,21 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MEIJIA DENTAL | Digital Dental Laboratory in Shenzhen</title>
-    <meta
-      name="description"
-      content="MEIJIA DENTAL is a Shenzhen dental laboratory providing all-ceramic, PFM, implant, removable and orthodontic restoration solutions for dental clinics and laboratories."
-    />
+    <title>{{ home.seo.title }}</title>
+    <meta name="description" content="{{ home.seo.description }}" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/styles.css?v=carousel-gallery" />
+    <link rel="stylesheet" href="/styles.css?v=content-cms" />
   </head>
   <body>
     <header class="site-header" data-header>
-      <a class="brand" href="#home" aria-label="MEIJIA DENTAL home">
-        <span class="brand-mark" aria-hidden="true"><img src="/assets/logo-mark.svg" alt="" /></span>
+      <a class="brand" href="#home" aria-label="{{ home.brand.name }} home">
+        <span class="brand-mark" aria-hidden="true"><img src="{{ home.brand.logo }}" alt="" /></span>
         <span>
-          <strong>MEIJIA DENTAL</strong>
-          <small>Digital Dental Laboratory</small>
+          <strong>{{ home.brand.name }}</strong>
+          <small>{{ home.brand.tagline }}</small>
         </span>
       </a>
       <button class="nav-toggle" type="button" aria-label="Open navigation" data-nav-toggle>
@@ -30,213 +27,152 @@
         <a href="#capabilities">Capabilities</a>
         <a href="#workflow">Workflow</a>
         <a href="#contact">Contact</a>
-        <a class="nav-cta" href="mailto:646483619@qq.com">Send Case</a>
+        <a class="nav-cta" href="{{ home.nav.send_case_link }}">{{ home.nav.send_case_label }}</a>
       </nav>
     </header>
 
     <main id="home">
       <section class="hero">
-        <img class="hero-image" src="{{ home.hero_image }}" alt="Modern dental laboratory with CAD/CAM equipment and ceramic restorations" />
+        <img class="hero-image" src="{{ home.hero.image }}" alt="{{ home.hero.image_alt }}" />
         <div class="hero-overlay"></div>
         <div class="hero-content">
-          <p class="eyebrow">Shenzhen based dental restoration partner</p>
-          <h1>{{ home.title }}</h1>
-          <p class="hero-copy">
-            {{ home.subtitle }}
-          </p>
+          <p class="eyebrow">{{ home.hero.eyebrow }}</p>
+          <h1>{{ home.hero.title }}</h1>
+          <p class="hero-copy">{{ home.hero.subtitle }}</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="/products">Explore Products</a>
-            <a class="button button-ghost" href="#contact">Request a Quote</a>
+            <a class="button button-primary" href="{{ home.hero.primary_button_link }}">{{ home.hero.primary_button_label }}</a>
+            <a class="button button-ghost" href="{{ home.hero.secondary_button_link }}">{{ home.hero.secondary_button_label }}</a>
           </div>
-          <div class="hero-metrics" aria-label="Company highlights">
-            <span><strong>Since 2005</strong>Shenzhen production</span>
-            <span><strong>CAD/CAM</strong>Digital workflow</span>
-            <span><strong>Multi-line</strong>Fixed, implant and removable</span>
-          </div>
+          {% if home.hero.metrics %}
+            <div class="hero-metrics" aria-label="Company highlights">
+              {% for metric in home.hero.metrics %}
+                <span><strong>{{ metric.value }}</strong>{{ metric.label }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
         </div>
       </section>
 
-      <section class="section intro-strip" aria-label="Service overview">
-        <div>
-          <span>01</span>
-          <strong>Precision fit</strong>
-          <p>Designed for predictable seating, occlusion and shade communication.</p>
-        </div>
-        <div>
-          <span>02</span>
-          <strong>Stable turnaround</strong>
-          <p>Case intake, production tracking and final inspection are handled in one workflow.</p>
-        </div>
-        <div>
-          <span>03</span>
-          <strong>Clinic ready support</strong>
-          <p>English communication for digital files, prescriptions and remake prevention.</p>
-        </div>
-      </section>
+      {% if home.service_overview %}
+        <section class="section intro-strip" aria-label="Service overview">
+          {% for item in home.service_overview %}
+            <div>
+              <span>{{ item.number }}</span>
+              <strong>{{ item.title }}</strong>
+              <p>{{ item.description }}</p>
+            </div>
+          {% endfor %}
+        </section>
+      {% endif %}
 
       <section class="section split" id="about">
         <div class="section-copy">
-          <p class="eyebrow">About MEIJIA DENTAL</p>
-          <h2>Built from craft experience, upgraded for digital dentistry.</h2>
-          <p>
-            MEIJIA DENTAL originated in Hong Kong and moved its production base to Shenzhen in 2005. The company has kept a practical promise from day one: make high-quality restorations accessible through disciplined technique, responsive service and fair value.
-          </p>
-          <p>
-            Our team supports dental clinics, distributors and partner laboratories with fixed restorations, implant solutions, removable prosthetics and orthodontic appliances. Every case is reviewed around fit, morphology, contact, occlusion, shade and finishing before dispatch.
-          </p>
-          <a class="text-link" href="/about">Read the company profile</a>
+          <p class="eyebrow">{{ home.about.eyebrow }}</p>
+          <h2>{{ home.about.title }}</h2>
+          {% for paragraph in home.about.paragraphs %}
+            <p>{{ paragraph }}</p>
+          {% endfor %}
+          <a class="text-link" href="{{ home.about.button_link }}">{{ home.about.button_label }}</a>
         </div>
-        <div class="about-panel">
-          <div>
-            <strong>Production Focus</strong>
-            <span>All-ceramic, PFM, implant, removable and orthodontic appliances</span>
+        {% if home.about.facts %}
+          <div class="about-panel">
+            {% for fact in home.about.facts %}
+              <div>
+                <strong>{{ fact.title }}</strong>
+                <span>{{ fact.description }}</span>
+              </div>
+            {% endfor %}
           </div>
-          <div>
-            <strong>Service Model</strong>
-            <span>Digital case files, conventional impressions and online order support</span>
-          </div>
-          <div>
-            <strong>Quality Mindset</strong>
-            <span>Technician-led checks from preparation review to final polish</span>
-          </div>
-        </div>
+        {% endif %}
       </section>
 
       <section class="section product-section" id="products">
         <div class="section-heading">
-          <p class="eyebrow">Product Center</p>
-          <h2>Restoration solutions for everyday clinical demand.</h2>
-          <p>
-            A focused product portfolio covers the categories from the original company page while presenting them clearly for English-speaking buyers.
-          </p>
+          <p class="eyebrow">{{ home.product_section.eyebrow }}</p>
+          <h2>{{ home.product_section.title }}</h2>
+          <p>{{ home.product_section.description }}</p>
         </div>
         <div class="product-grid">
-          <a class="product-card" href="/all-ceramic-restorations">
-            <img src="/assets/product-all-ceramic.jpg" alt="All-ceramic crowns and veneers on a dental laboratory bench" />
-            <div class="product-card-body">
-              <span class="product-icon">AC</span>
-              <h3>All-Ceramic Restorations</h3>
-              <p>Zirconia crowns, lithium disilicate veneers and esthetic ceramic solutions for anterior and posterior cases.</p>
-            </div>
-          </a>
-          <a class="product-card" href="/porcelain-fused-to-metal">
-            <img src="/assets/product-pfm.jpg" alt="Porcelain fused to metal crowns and bridge framework in a dental lab" />
-            <div class="product-card-body">
-              <span class="product-icon">PFM</span>
-              <h3>Porcelain Fused to Metal</h3>
-              <p>Durable PFM crowns and bridges with controlled metal frameworks, porcelain layering and shade matching.</p>
-            </div>
-          </a>
-          <a class="product-card" href="/implant-series">
-            <img src="/assets/product-implant.jpg" alt="Implant crowns, abutments and components on a dental model" />
-            <div class="product-card-body">
-              <span class="product-icon">IM</span>
-              <h3>Implant Series</h3>
-              <p>Implant crowns, custom abutments and screw-retained options designed for stable emergence and fit.</p>
-            </div>
-          </a>
-          <a class="product-card" href="/cast-partial-frameworks">
-            <img src="/assets/product-cast-partial.jpg" alt="Cast partial denture framework on a dental model" />
-            <div class="product-card-body">
-              <span class="product-icon">CR</span>
-              <h3>Cast Partial Frameworks</h3>
-              <p>Metal frameworks and removable partial denture bases made for retention, strength and patient comfort.</p>
-            </div>
-          </a>
-          <a class="product-card" href="/acrylic-dentures">
-            <img src="/assets/product-acrylic-dentures.jpg" alt="Acrylic full and partial dentures on dental models" />
-            <div class="product-card-body">
-              <span class="product-icon">AR</span>
-              <h3>Acrylic Dentures</h3>
-              <p>Full and partial acrylic dentures with balanced tooth arrangement, base finishing and repair support.</p>
-            </div>
-          </a>
-          <a class="product-card" href="/retainers-orthodontics">
-            <img src="/assets/product-retainers.jpg" alt="Clear retainers and Hawley orthodontic retainer on a lab tabletop" />
-            <div class="product-card-body">
-              <span class="product-icon">OR</span>
-              <h3>Retainers & Orthodontics</h3>
-              <p>Clear retainers, Hawley retainers and auxiliary appliances for post-treatment maintenance.</p>
-            </div>
-          </a>
+          {% for product in products %}
+            {% if loop.index <= home.product_section.max_items %}
+              <a class="product-card" href="{{ product.url }}">
+                <img src="{{ product.card_image }}" alt="{{ product.card_alt }}" />
+                <div class="product-card-body">
+                  <span class="product-icon">{{ product.icon }}</span>
+                  <h3>{{ product.title }}</h3>
+                  <p>{{ product.short_description }}</p>
+                </div>
+              </a>
+            {% endif %}
+          {% endfor %}
         </div>
       </section>
 
       <section class="section capabilities" id="capabilities">
         <div class="section-copy">
-          <p class="eyebrow">Capabilities</p>
-          <h2>Digital tools with technician judgment behind every step.</h2>
-          <p>
-            Technology improves speed and repeatability, but restoration quality still depends on careful human review. MEIJIA DENTAL pairs scan-based design and milling workflows with experienced ceramic, metal and denture technicians.
-          </p>
+          <p class="eyebrow">{{ home.capabilities.eyebrow }}</p>
+          <h2>{{ home.capabilities.title }}</h2>
+          <p>{{ home.capabilities.description }}</p>
         </div>
-        <div class="capability-list">
-          <div><strong>CAD design</strong><span>Margin review, anatomy, contacts and occlusion planning.</span></div>
-          <div><strong>CAM production</strong><span>Milling, sintering, pressing, casting and framework finishing.</span></div>
-          <div><strong>Layering & staining</strong><span>Shade communication, surface texture and natural characterization.</span></div>
-          <div><strong>Final inspection</strong><span>Fit, contact, occlusion, polish, labeling and packaging control.</span></div>
-        </div>
+        {% if home.capabilities.items %}
+          <div class="capability-list">
+            {% for item in home.capabilities.items %}
+              <div><strong>{{ item.title }}</strong><span>{{ item.description }}</span></div>
+            {% endfor %}
+          </div>
+        {% endif %}
       </section>
 
       <section class="section workflow" id="workflow">
         <div class="section-heading">
-          <p class="eyebrow">Workflow</p>
-          <h2>A clear case path from prescription to delivery.</h2>
+          <p class="eyebrow">{{ home.workflow.eyebrow }}</p>
+          <h2>{{ home.workflow.title }}</h2>
         </div>
-        <ol class="timeline">
-          <li>
-            <strong>Case submission</strong>
-            <p>Send STL files, scans, photos, shade notes or conventional impressions with a prescription.</p>
-          </li>
-          <li>
-            <strong>Design confirmation</strong>
-            <p>Technicians review preparation, material choice, implant system details and timeline requirements.</p>
-          </li>
-          <li>
-            <strong>Production</strong>
-            <p>Cases move through digital design, framework production, ceramic or acrylic finishing and internal checks.</p>
-          </li>
-          <li>
-            <strong>Delivery support</strong>
-            <p>Finished restorations are packed with case information, and follow-up feedback is used to improve repeat cases.</p>
-          </li>
-        </ol>
+        {% if home.workflow.steps %}
+          <ol class="timeline">
+            {% for step in home.workflow.steps %}
+              <li>
+                <strong>{{ step.title }}</strong>
+                <p>{{ step.description }}</p>
+              </li>
+            {% endfor %}
+          </ol>
+        {% endif %}
       </section>
 
       <section class="section quality-band">
         <div>
-          <p class="eyebrow">Why partner with us</p>
-          <h2>Consistent restorations, practical communication and responsible after-service.</h2>
+          <p class="eyebrow">{{ home.quality.eyebrow }}</p>
+          <h2>{{ home.quality.title }}</h2>
         </div>
-        <ul>
-          <li>Material recommendations matched to the indication and budget.</li>
-          <li>Photo-based shade support for esthetic anterior cases.</li>
-          <li>Traceable case handling for online and offline orders.</li>
-          <li>Remake prevention through prescription and preparation review.</li>
-        </ul>
+        {% if home.quality.items %}
+          <ul>
+            {% for item in home.quality.items %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
       </section>
 
       <section class="section contact-section" id="contact">
         <div class="section-copy">
-          <p class="eyebrow">Contact</p>
-          <h2>Start with a case file, product question or sample order.</h2>
-          <p>
-            Tell us the restoration type, material, shade, implant system if applicable, expected delivery date and any clinic-specific preferences. Our team will confirm the next step in English.
-          </p>
+          <p class="eyebrow">{{ home.contact.eyebrow }}</p>
+          <h2>{{ home.contact.title }}</h2>
+          <p>{{ home.contact.description }}</p>
         </div>
         <div class="contact-card">
-          <a href="tel:+8615818747471"><span>Phone</span>+86 15818747471</a>
-          <a href="mailto:646483619@qq.com"><span>Email</span>646483619@qq.com</a>
-          <a href="https://wa.me/8615818747471"><span>WhatsApp</span>+86 15818747471</a>
-          <p><span>Address</span>4F, A3 Building, Southern Pearl Technology Park, Yingtai Industrial Zone, Dalang, Longhua, Shenzhen, China</p>
+          <a href="{{ home.contact.phone_link }}"><span>Phone</span>{{ home.contact.phone }}</a>
+          <a href="{{ home.contact.email_link }}"><span>Email</span>{{ home.contact.email }}</a>
+          <a href="{{ home.contact.whatsapp_link }}"><span>WhatsApp</span>{{ home.contact.whatsapp }}</a>
+          <p><span>Address</span>{{ home.contact.address }}</p>
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <div>
-        <strong>MEIJIA DENTAL</strong>
-        <span>Shenzhen Meijia Dental Technology Co., Ltd.</span>
+        <strong>{{ home.footer.company_name }}</strong>
+        <span>{{ home.footer.company_legal_name }}</span>
       </div>
       <nav aria-label="Footer navigation">
         <a href="/about">About</a>
@@ -244,9 +180,9 @@
         <a href="#workflow">Workflow</a>
         <a href="#contact">Contact</a>
       </nav>
-      <p>&copy; 2026 MEIJIA DENTAL. All rights reserved.</p>
+      <p>{{ home.footer.copyright }}</p>
     </footer>
 
-    <script src="/script.js?v=carousel-gallery"></script>
+    <script src="/script.js?v=content-cms"></script>
   </body>
 </html>

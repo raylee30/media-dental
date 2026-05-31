@@ -1,0 +1,71 @@
+{
+  "order": 3,
+  "title": "Implant Series",
+  "slug": "implant-series",
+  "icon": "IM",
+  "category": "Implant Solutions",
+  "short_description": "Implant crowns, abutments and screw-retained options with digital review.",
+  "description": "Implant restorations are designed around emergence profile, occlusion, screw access and fixture system details. The team supports single implant crowns, custom abutments and screw-retained options with digital file review.",
+  "card_image": "/assets/product-implant.jpg",
+  "card_alt": "Implant crowns, abutments and components",
+  "tags": [
+    "Implant crowns",
+    "Custom abutments",
+    "Screw-retained cases",
+    "Emergence profile"
+  ],
+  "gallery": [
+    {
+      "image": "/assets/product-implant.jpg",
+      "alt": "Implant crowns, abutments and components",
+      "caption": "Implant components and restorations reviewed for platform detail, fit and occlusion."
+    },
+    {
+      "image": "/assets/product-implant-new-1.webp",
+      "alt": "Full-arch implant restoration image",
+      "caption": "Full-arch implant restoration reference for multi-unit planning and esthetic outcome."
+    },
+    {
+      "image": "/assets/product-implant-detail.jpg",
+      "alt": "Close-up of implant crowns and custom titanium abutments",
+      "caption": "Component detail showing abutments, screw access and platform precision."
+    },
+    {
+      "image": "/assets/product-implant-lab.jpg",
+      "alt": "Technician checking a screw-retained implant crown on a model",
+      "caption": "Lab fit check for emergence profile, seating and occlusion."
+    }
+  ],
+  "details": [
+    {
+      "label": "Applications",
+      "text": "Single implant crowns, bridge units, screw-retained restorations and abutments."
+    },
+    {
+      "label": "Planning",
+      "text": "Emergence profile, implant platform, screw channel, contact and occlusion review."
+    },
+    {
+      "label": "Components",
+      "text": "Custom abutments, implant crowns, analog-based and scan-body workflows."
+    },
+    {
+      "label": "Case Files",
+      "text": "Implant system, platform size, scan body library, shade and soft tissue notes."
+    }
+  ],
+  "related_products": [
+    "all-ceramic-restorations",
+    "porcelain-fused-to-metal"
+  ],
+  "inquiry": {
+    "title": "Request implant case support.",
+    "description": "Send implant system, platform size, scan body library, shade and case files.",
+    "quantity_placeholder": "Example: 3 custom abutments",
+    "message_placeholder": "Implant system, platform, shade, files or notes"
+  },
+  "seo": {
+    "title": "Implant Series | MEIJIA DENTAL",
+    "description": "Implant crowns, custom abutments and screw-retained implant restorations from MEIJIA DENTAL."
+  }
+}

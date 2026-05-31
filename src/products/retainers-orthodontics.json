@@ -1,0 +1,71 @@
+{
+  "order": 6,
+  "title": "Retainers & Orthodontics",
+  "slug": "retainers-orthodontics",
+  "icon": "OR",
+  "category": "Orthodontic Appliances",
+  "short_description": "Clear retainers, Hawley retainers and auxiliary orthodontic appliances.",
+  "description": "Retainers and auxiliary orthodontic appliances are produced for post-treatment maintenance and routine clinical support. The category includes clear retainers, Hawley retainers and appliance work based on model or digital files.",
+  "card_image": "/assets/product-retainers.jpg",
+  "card_alt": "Clear retainers and orthodontic retainer",
+  "tags": [
+    "Clear retainers",
+    "Hawley retainers",
+    "Model-based appliances",
+    "Digital file support"
+  ],
+  "gallery": [
+    {
+      "image": "/assets/product-retainers.jpg",
+      "alt": "Clear retainers and orthodontic retainer",
+      "caption": "Retainer and appliance work for post-treatment stability and routine clinical support."
+    },
+    {
+      "image": "/assets/product-retainers-new-1.jpg",
+      "alt": "Clear orthodontic retainer on dental model",
+      "caption": "Clear retainer reference showing model fit, transparency and trimmed edge finish."
+    },
+    {
+      "image": "/assets/product-retainers-detail.jpg",
+      "alt": "Close-up of clear retainers and a Hawley retainer on orthodontic models",
+      "caption": "Detail view of clear retainer material, acrylic plate and wire adaptation."
+    },
+    {
+      "image": "/assets/product-retainers-lab.jpg",
+      "alt": "Technician trimming a clear retainer on an orthodontic model",
+      "caption": "Fabrication scene for trimming, edge comfort and final appliance fit."
+    }
+  ],
+  "details": [
+    {
+      "label": "Applications",
+      "text": "Post-treatment retention, maintenance appliances and simple orthodontic support."
+    },
+    {
+      "label": "Products",
+      "text": "Clear retainers, Hawley retainers and model-based auxiliary appliances."
+    },
+    {
+      "label": "Checks",
+      "text": "Fit, trimming edge, wire adaptation, clarity and patient comfort."
+    },
+    {
+      "label": "Case Files",
+      "text": "STL files, stone models, retainer type, wire preference and special instructions."
+    }
+  ],
+  "related_products": [
+    "acrylic-dentures",
+    "all-ceramic-restorations"
+  ],
+  "inquiry": {
+    "title": "Request orthodontic appliance support.",
+    "description": "Send model files, retainer type, wire preference, quantity and delivery requirements.",
+    "quantity_placeholder": "Example: 20 clear retainers",
+    "message_placeholder": "Retainer type, model files, delivery date or notes"
+  },
+  "seo": {
+    "title": "Retainers & Orthodontics | MEIJIA DENTAL",
+    "description": "Clear retainers, Hawley retainers and auxiliary orthodontic appliances from MEIJIA DENTAL."
+  }
+}

@@ -1,0 +1,90 @@
+---
+pagination:
+  data: products
+  size: 1
+  alias: product
+permalink: "/{{ product.slug }}.html"
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ product.seo.title }}</title>
+    <meta name="description" content="{{ product.seo.description }}" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css?v=content-cms" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="/#home" aria-label="{{ home.brand.name }} home"><span class="brand-mark" aria-hidden="true"><img src="{{ home.brand.logo }}" alt="" /></span><span><strong>{{ home.brand.name }}</strong><small>{{ home.brand.tagline }}</small></span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" data-nav-toggle><span></span><span></span></button>
+      <nav class="main-nav" data-nav><a href="/about">About</a><a class="is-active" href="/products">Products</a><a href="/#capabilities">Capabilities</a><a href="/#workflow">Workflow</a><a href="/#contact">Contact</a><a class="nav-cta" href="{{ home.nav.send_case_link }}">{{ home.nav.send_case_label }}</a></nav>
+    </header>
+    <main>
+      <section class="section product-single-intro">
+        <div class="product-single-copy">
+          <p class="eyebrow">{{ product.category }}</p>
+          <h1>{{ product.title }}</h1>
+          <p>{{ product.description }}</p>
+          {% if product.tags %}
+            <div class="product-tags">
+              {% for tag in product.tags %}
+                <span>{{ tag }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+        {% if product.gallery %}
+          <div class="product-single-gallery" aria-label="{{ product.title }} images">
+            {% for item in product.gallery %}
+              <figure class="product-single-image{% if loop.first %} product-single-image-main{% endif %}">
+                <img src="{{ item.image }}" alt="{{ item.alt }}" />
+                <figcaption>{{ item.caption }}</figcaption>
+              </figure>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </section>
+      <section class="section product-single-body">
+        <div class="product-specs">
+          <strong>Product Details</strong>
+          <ul>
+            {% for item in product.details %}
+              <li><span>{{ item.label }}</span>{{ item.text }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <aside class="related-panel">
+          <strong>Related Products</strong>
+          {% for slug in product.related_products %}
+            {% for related in products %}
+              {% if related.slug == slug %}
+                <a href="{{ related.url }}">{{ related.title }}</a>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+          <a href="/products">Back to Product Center</a>
+        </aside>
+      </section>
+      <section class="section inquiry-section" id="inquiry">
+        <div class="section-copy">
+          <p class="eyebrow">Inquiry Form</p>
+          <h2>{{ product.inquiry.title }}</h2>
+          <p>{{ product.inquiry.description }}</p>
+          <div class="inquiry-contact"><a href="{{ home.contact.email_link }}">{{ home.contact.email }}</a><a href="{{ home.contact.whatsapp_link }}">WhatsApp: {{ home.contact.whatsapp }}</a></div>
+        </div>
+        <form class="inquiry-form" action="{{ home.contact.email_link }}" method="post" enctype="text/plain">
+          <label>Name<input type="text" name="Name" autocomplete="name" required /></label>
+          <label>Email<input type="email" name="Email" autocomplete="email" required /></label>
+          <label>Product Category<input type="text" name="Product Category" value="{{ product.title }}" /></label>
+          <label>Quantity / Case Type<input type="text" name="Quantity or Case Type" placeholder="{{ product.inquiry.quantity_placeholder }}" /></label>
+          <label class="form-wide">Message<textarea name="Message" rows="5" placeholder="{{ product.inquiry.message_placeholder }}"></textarea></label>
+          <button class="button button-teal" type="submit">Send Inquiry</button>
+        </form>
+      </section>
+    </main>
+    <footer class="footer"><div><strong>{{ home.footer.company_name }}</strong><span>{{ home.footer.company_legal_name }}</span></div><nav aria-label="Footer navigation"><a href="/about">About</a><a href="/products">Products</a><a href="/#workflow">Workflow</a><a href="/#contact">Contact</a></nav><p>{{ home.footer.copyright }}</p></footer>
+    <script src="/script.js?v=content-cms"></script>
+  </body>
+</html>
