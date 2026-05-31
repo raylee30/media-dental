@@ -2,9 +2,9 @@ local_backend: true
 
 backend:
   name: github
-  repo: YOUR_GITHUB_USERNAME/meijia-dental-website
+  repo: raylee30/media-dental
   branch: main
-  base_url: https://YOUR-CLOUDFLARE-PAGES-DOMAIN.pages.dev
+  base_url: https://www.mjsmiles.com
   auth_endpoint: oauth
 
 media_folder: "src/assets/uploads"
