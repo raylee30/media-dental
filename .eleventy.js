@@ -9,6 +9,7 @@ export default function (eleventyConfig) {
     "src/js",
     "src/fonts",
     "src/_headers",
+    "src/_routes.json",
     "src/styles.css",
     "src/script.js"
   ];

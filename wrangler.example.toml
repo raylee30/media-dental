@@ -1,0 +1,15 @@
+name = "meijia-dental"
+compatibility_date = "2026-06-01"
+pages_build_output_dir = "_site"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "meijia-dental-admin"
+database_id = "replace-with-your-d1-database-id"
+
+# Set these as Cloudflare Pages environment variables or secrets:
+# GITHUB_TOKEN = "github fine-grained token with repository contents read/write"
+# GITHUB_OWNER = "raylee30"
+# GITHUB_REPO = "media-dental"
+# GITHUB_BRANCH = "main"
+# ADMIN_SETUP_TOKEN = "a long random setup token used only for first admin creation"

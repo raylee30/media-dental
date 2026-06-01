@@ -1,34 +1,38 @@
-# MEIJIA DENTAL 11ty + Decap CMS
+# MEIJIA DENTAL 11ty Website + Custom Admin
 
-This version keeps the existing visual design and moves editable content into CMS-friendly data files.
+This project keeps the public website as a fast 11ty static site and replaces Decap CMS with a custom Chinese admin system.
 
-- Home page content: `src/_data/home.json`
-- Product content: `src/products/*.json`
-- Product list page: `src/products.html`
-- Product detail template: `src/product.njk`
-- CMS config: `src/admin/config.yml`
+## Editable Content
 
-Editors can use `/admin/` to update the home page and add or edit products without touching HTML.
+- Home page: `src/_data/home.json`
+- About page: `src/_data/aboutPage.json`
+- Products page: `src/_data/productsPage.json`
+- Product detail pages: `src/products/*.json`
+- Admin app: `src/admin`
+- Cloudflare Pages Functions API: `functions/api`
 
-## Local Development
+## Local Website Development
 
 ```bash
 npm install
-npm run dev
+npm run build
+```
+
+To preview the generated static site:
+
+```bash
+cd _site
+python3 -m http.server 8022
 ```
 
 Open:
 
-- Website: `http://localhost:8080`
-- CMS: `http://localhost:8080/admin/`
+- Website: `http://127.0.0.1:8022/`
+- Admin shell: `http://127.0.0.1:8022/admin/`
 
-For local CMS editing, run Decap's local backend in a second terminal:
+The plain Python server can only preview the admin login screen. Login, saving, users and uploads require Cloudflare Pages Functions.
 
-```bash
-npx decap-server
-```
-
-## Cloudflare Pages
+## Cloudflare Pages Build Settings
 
 Build command:
 
@@ -42,20 +46,55 @@ Build output directory:
 _site
 ```
 
-## GitHub OAuth
+## Required Cloudflare Resources
 
-Create a GitHub OAuth App and set the callback URL to:
-
-```text
-https://YOUR-CLOUDFLARE-PAGES-DOMAIN.pages.dev/oauth/callback
-```
-
-Then add these Cloudflare Pages environment variables:
+Create one D1 database and bind it to Pages Functions as:
 
 ```text
-OAUTH_GITHUB_CLIENT_ID=your_github_oauth_client_id
-OAUTH_GITHUB_CLIENT_SECRET=your_github_oauth_client_secret
-OAUTH_GITHUB_SCOPE=repo
+DB
 ```
 
-For a public-only repository, you may use `public_repo` instead of `repo`.
+Run the schema:
+
+```bash
+wrangler d1 execute meijia-dental-admin --file=./schema.sql
+```
+
+## Required Environment Variables
+
+Set these in Cloudflare Pages:
+
+```text
+GITHUB_TOKEN=your_github_fine_grained_token
+GITHUB_OWNER=raylee30
+GITHUB_REPO=media-dental
+GITHUB_BRANCH=main
+ADMIN_SETUP_TOKEN=a_long_random_setup_token
+```
+
+The GitHub token must have repository Contents read/write permission because the admin saves JSON and images back into the repository.
+
+## First Admin Account
+
+After deployment:
+
+1. Open `/admin/`.
+2. Click `首次部署？初始化管理员`.
+3. Enter `ADMIN_SETUP_TOKEN`.
+4. Create the first super admin.
+5. Log in with the new admin account.
+
+The setup endpoint refuses to create another initial admin after the first user exists.
+
+## Roles
+
+- `admin`: pages, products, uploads, users and logs.
+- `editor`: pages, products, uploads and logs.
+- `product_editor`: products and uploads.
+
+## Notes
+
+- This custom admin no longer uses GitHub OAuth or Decap CMS.
+- Passwords are stored in D1 as PBKDF2 hashes.
+- Sessions use HttpOnly cookies.
+- Uploads are compressed in the browser before being written to `src/assets/uploads` through the GitHub API.

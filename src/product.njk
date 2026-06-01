@@ -15,7 +15,7 @@ permalink: "/{{ product.slug }}.html"
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/styles.css?v=content-cms" />
   </head>
-  <body>
+  <body data-page-type="product_detail" data-page-title="{{ product.title }}" data-product-slug="{{ product.slug }}" data-product-title="{{ product.title }}">
     <header class="site-header" data-header>
       <a class="brand" href="/#home" aria-label="{{ home.brand.name }} home"><span class="brand-mark" aria-hidden="true"><img src="{{ home.brand.logo }}" alt="" /></span><span><strong>{{ home.brand.name }}</strong><small>{{ home.brand.tagline }}</small></span></a>
       <button class="nav-toggle" type="button" aria-label="Open navigation" data-nav-toggle><span></span><span></span></button>
