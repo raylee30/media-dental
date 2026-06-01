@@ -27,6 +27,12 @@ To add the default super admin account, run:
 wrangler d1 execute meijia-dental-admin --remote --file=./migrations/0003_default_admin.sql
 ```
 
+If the default admin was created before the Cloudflare PBKDF2 compatibility fix, update its password hash:
+
+```bash
+wrangler d1 execute meijia-dental-admin --remote --file=./migrations/0004_update_admin_password_hash.sql
+```
+
 Default admin:
 
 ```text

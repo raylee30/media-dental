@@ -76,7 +76,7 @@ SELECT
   'admin@meijia-dental.local',
   'admin',
   'admin',
-  'pbkdf2$120000$rphcJYTw7qdXVR46PTYR2g$id1hMA02RytzPlcNkjkK9YiKj51Td5WXYoVEr9eSlh8',
+  'pbkdf2$100000$B151QCcXDZ7r-gBBSZ3CSQ$1SSYwvXpKs9Hb8T-YtZOPAM1sCMR2SqUUbglEDyS_38',
   1
 WHERE NOT EXISTS (
   SELECT 1 FROM users WHERE username = 'admin'

@@ -1,4 +1,4 @@
-const PASSWORD_ITERATIONS = 120000;
+const PASSWORD_ITERATIONS = 100000;
 
 function bytesToBase64Url(bytes) {
   let binary = "";
