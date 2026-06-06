@@ -11,7 +11,7 @@ permalink: /products.html
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/styles.css?v=easy-cms" />
   </head>
-  <body>
+  <body data-page-type="products" data-page-title="Products">
     <header class="site-header" data-header>
       <a class="brand" href="/#home" aria-label="{{ home.brand.name }} home">
         <span class="brand-mark" aria-hidden="true"><img src="{{ home.brand.logo }}" alt="" /></span>
@@ -22,8 +22,8 @@ permalink: /products.html
       </a>
       <button class="nav-toggle" type="button" aria-label="Open navigation" data-nav-toggle><span></span><span></span></button>
       <nav class="main-nav" data-nav>
-        <a href="/about">About</a>
-        <a class="is-active" href="/products">Products</a>
+        <a href="/about.html">About</a>
+        <a class="is-active" href="/products.html">Products</a>
         <a href="/#capabilities">Capabilities</a>
         <a href="/#workflow">Workflow</a>
         <a href="/#contact">Contact</a>
@@ -99,7 +99,7 @@ permalink: /products.html
 
     <footer class="footer">
       <div><strong>{{ home.footer.company_name }}</strong><span>{{ home.footer.company_legal_name }}</span></div>
-      <nav aria-label="Footer navigation"><a href="/about">About</a><a href="/products">Products</a><a href="/#workflow">Workflow</a><a href="/#contact">Contact</a></nav>
+      <nav aria-label="Footer navigation"><a href="/about.html">About</a><a href="/products.html">Products</a><a href="/#workflow">Workflow</a><a href="/#contact">Contact</a></nav>
       <p>{{ home.footer.copyright }}</p>
     </footer>
     <script src="/script.js?v=easy-cms"></script>

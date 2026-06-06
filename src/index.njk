@@ -8,7 +8,7 @@
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/styles.css?v=content-cms" />
   </head>
-  <body>
+  <body data-page-type="home" data-page-title="Home">
     <header class="site-header" data-header>
       <a class="brand" href="#home" aria-label="{{ home.brand.name }} home">
         <span class="brand-mark" aria-hidden="true"><img src="{{ home.brand.logo }}" alt="" /></span>
@@ -22,8 +22,8 @@
         <span></span>
       </button>
       <nav class="main-nav" data-nav>
-        <a href="/about">About</a>
-        <a href="/products">Products</a>
+        <a href="/about.html">About</a>
+        <a href="/products.html">Products</a>
         <a href="#capabilities">Capabilities</a>
         <a href="#workflow">Workflow</a>
         <a href="#contact">Contact</a>
@@ -175,8 +175,8 @@
         <span>{{ home.footer.company_legal_name }}</span>
       </div>
       <nav aria-label="Footer navigation">
-        <a href="/about">About</a>
-        <a href="/products">Products</a>
+        <a href="/about.html">About</a>
+        <a href="/products.html">Products</a>
         <a href="#workflow">Workflow</a>
         <a href="#contact">Contact</a>
       </nav>
