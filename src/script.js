@@ -58,12 +58,14 @@ inquiryForms.forEach((form) => {
 
 productGalleries.forEach((gallery) => {
   const slides = Array.from(gallery.querySelectorAll(".product-single-image"));
+  const autoplayDelay = 2000;
 
   if (slides.length < 2) {
     return;
   }
 
   let activeIndex = 0;
+  let autoplayTimer = null;
   const controls = document.createElement("div");
   const prevButton = document.createElement("button");
   const nextButton = document.createElement("button");
@@ -74,7 +76,10 @@ productGalleries.forEach((gallery) => {
     dot.type = "button";
     dot.className = "product-carousel-dot";
     dot.setAttribute("aria-label", `Show image ${index + 1}`);
-    dot.addEventListener("click", () => showSlide(index));
+    dot.addEventListener("click", () => {
+      showSlide(index, index >= activeIndex ? "next" : "prev");
+      restartAutoplay();
+    });
     dots.append(dot);
 
     return dot;
@@ -91,25 +96,73 @@ productGalleries.forEach((gallery) => {
   prevButton.textContent = "<";
   nextButton.textContent = ">";
 
-  function showSlide(nextIndex) {
-    activeIndex = (nextIndex + slides.length) % slides.length;
+  function showSlide(nextIndex, direction = "next") {
+    const previousIndex = activeIndex;
+    const normalizedIndex = (nextIndex + slides.length) % slides.length;
+    const isReady = gallery.classList.contains("is-ready");
+
+    if (normalizedIndex === activeIndex && isReady) {
+      return;
+    }
+
+    if (isReady) {
+      const enteringSlide = slides[normalizedIndex];
+
+      enteringSlide.classList.remove("is-active", "is-before", "is-after");
+      enteringSlide.classList.add(direction === "next" ? "is-after" : "is-before");
+      enteringSlide.setAttribute("aria-hidden", "true");
+      enteringSlide.getBoundingClientRect();
+    }
+
+    activeIndex = normalizedIndex;
 
     slides.forEach((slide, index) => {
       const isActive = index === activeIndex;
 
       slide.classList.toggle("is-active", isActive);
+      slide.classList.toggle(
+        "is-before",
+        !isActive && (index === previousIndex ? direction === "next" : index < activeIndex)
+      );
+      slide.classList.toggle(
+        "is-after",
+        !isActive && (index === previousIndex ? direction === "prev" : index > activeIndex)
+      );
       slide.setAttribute("aria-hidden", String(!isActive));
       dotButtons[index].classList.toggle("is-active", isActive);
       dotButtons[index].setAttribute("aria-current", isActive ? "true" : "false");
     });
   }
 
-  prevButton.addEventListener("click", () => showSlide(activeIndex - 1));
-  nextButton.addEventListener("click", () => showSlide(activeIndex + 1));
+  function startAutoplay() {
+    if (autoplayTimer) return;
+    autoplayTimer = window.setInterval(() => showSlide(activeIndex + 1, "next"), autoplayDelay);
+  }
+
+  function stopAutoplay() {
+    if (!autoplayTimer) return;
+    window.clearInterval(autoplayTimer);
+    autoplayTimer = null;
+  }
+
+  function restartAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
+  prevButton.addEventListener("click", () => {
+    showSlide(activeIndex - 1, "prev");
+    restartAutoplay();
+  });
+  nextButton.addEventListener("click", () => {
+    showSlide(activeIndex + 1, "next");
+    restartAutoplay();
+  });
   controls.append(prevButton, nextButton);
   gallery.append(controls, dots);
+  showSlide(0, "next");
   gallery.classList.add("is-ready");
-  showSlide(0);
+  startAutoplay();
 });
 
 window.buildInquiryMailto = buildInquiryMailto;

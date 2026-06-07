@@ -760,6 +760,16 @@ h3 {
   position: relative;
 }
 
+.product-single-gallery.is-ready {
+  overflow: hidden;
+}
+
+.product-single-gallery.is-ready::before {
+  display: block;
+  aspect-ratio: 4 / 3;
+  content: "";
+}
+
 .product-single-image {
   overflow: hidden;
   margin: 0;
@@ -769,9 +779,35 @@ h3 {
   box-shadow: 0 12px 36px rgba(16, 33, 43, 0.08);
 }
 
-.product-single-gallery:not(.is-ready) .product-single-image:not(:first-of-type),
-.product-single-gallery.is-ready .product-single-image:not(.is-active) {
+.product-single-gallery:not(.is-ready) .product-single-image:not(:first-of-type) {
   display: none;
+}
+
+.product-single-gallery.is-ready .product-single-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  pointer-events: none;
+  transform: translateX(100%);
+  transition: transform 0.48s cubic-bezier(0.22, 0.72, 0.18, 1);
+  will-change: transform;
+}
+
+.product-single-gallery.is-ready .product-single-image.is-active {
+  z-index: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.product-single-gallery.is-ready .product-single-image.is-before {
+  transform: translateX(-100%);
+}
+
+.product-single-gallery.is-ready .product-single-image.is-after {
+  transform: translateX(100%);
 }
 
 .product-single-image img {
@@ -784,7 +820,7 @@ h3 {
 .product-carousel-controls {
   position: absolute;
   inset: 0 0 auto;
-  z-index: 2;
+  z-index: 3;
   aspect-ratio: 4 / 3;
   pointer-events: none;
 }
@@ -826,6 +862,8 @@ h3 {
 }
 
 .product-carousel-dots {
+  position: relative;
+  z-index: 4;
   display: flex;
   align-items: center;
   justify-content: center;
