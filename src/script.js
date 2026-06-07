@@ -84,8 +84,8 @@ productGalleries.forEach((gallery) => {
   dots.className = "product-carousel-dots";
   prevButton.type = "button";
   nextButton.type = "button";
-  prevButton.className = "product-carousel-button";
-  nextButton.className = "product-carousel-button";
+  prevButton.className = "product-carousel-button is-prev";
+  nextButton.className = "product-carousel-button is-next";
   prevButton.setAttribute("aria-label", "Show previous image");
   nextButton.setAttribute("aria-label", "Show next image");
   prevButton.textContent = "<";
@@ -106,8 +106,8 @@ productGalleries.forEach((gallery) => {
 
   prevButton.addEventListener("click", () => showSlide(activeIndex - 1));
   nextButton.addEventListener("click", () => showSlide(activeIndex + 1));
-  controls.append(prevButton, dots, nextButton);
-  gallery.append(controls);
+  controls.append(prevButton, nextButton);
+  gallery.append(controls, dots);
   gallery.classList.add("is-ready");
   showSlide(0);
 });
