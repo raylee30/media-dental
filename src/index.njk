@@ -6,7 +6,7 @@
     <title>{{ home.seo.title }}</title>
     <meta name="description" content="{{ home.seo.description }}" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/styles.css?v=content-cms" />
+    <link rel="stylesheet" href="/styles.css?v=home-carousel-16x9" />
   </head>
   <body data-page-type="home" data-page-title="Home">
     <header class="site-header" data-header>
@@ -22,8 +22,8 @@
         <span></span>
       </button>
       <nav class="main-nav" data-nav>
-        <a href="/about">About</a>
-        <a href="/products">Products</a>
+        <a href="/about.html">About</a>
+        <a href="/products.html">Products</a>
         <a href="#capabilities">Capabilities</a>
         <a href="#workflow">Workflow</a>
         <a href="#contact">Contact</a>
@@ -33,12 +33,19 @@
 
     <main id="home">
       <section class="hero">
-        <img class="hero-image" src="{{ home.hero.image }}" alt="{{ home.hero.image_alt }}" />
+        <div class="hero-carousel" data-hero-carousel>
+          <img class="hero-image hero-slide is-active" src="{{ home.hero.image }}" alt="{{ home.hero.image_alt }}" data-hero-eyebrow="{{ home.hero.eyebrow | escape }}" data-hero-title="{{ home.hero.title | escape }}" data-hero-subtitle="{{ home.hero.subtitle | escape }}" />
+          {% if home.hero.carousel_images %}
+            {% for slide in home.hero.carousel_images %}
+              <img class="hero-image hero-slide" src="{{ slide.image }}" alt="{{ slide.image_alt }}" data-hero-eyebrow="{{ slide.eyebrow | escape }}" data-hero-title="{{ slide.title | escape }}" data-hero-subtitle="{{ slide.subtitle | escape }}" aria-hidden="true" />
+            {% endfor %}
+          {% endif %}
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-          <p class="eyebrow">{{ home.hero.eyebrow }}</p>
-          <h1>{{ home.hero.title }}</h1>
-          <p class="hero-copy">{{ home.hero.subtitle }}</p>
+          <p class="eyebrow" data-hero-copy-field="eyebrow">{{ home.hero.eyebrow }}</p>
+          <h1 data-hero-copy-field="title">{{ home.hero.title }}</h1>
+          <p class="hero-copy" data-hero-copy-field="subtitle">{{ home.hero.subtitle }}</p>
           <div class="hero-actions">
             <a class="button button-primary" href="{{ home.hero.primary_button_link }}">{{ home.hero.primary_button_label }}</a>
             <a class="button button-ghost" href="{{ home.hero.secondary_button_link }}">{{ home.hero.secondary_button_label }}</a>
@@ -51,6 +58,14 @@
             </div>
           {% endif %}
         </div>
+        {% if home.hero.carousel_images %}
+          <div class="hero-carousel-dots" aria-label="Homepage images">
+            <button class="hero-carousel-dot is-active" type="button" data-hero-dot="0" aria-label="Show homepage image 1" aria-current="true"></button>
+            {% for slide in home.hero.carousel_images %}
+              <button class="hero-carousel-dot" type="button" data-hero-dot="{{ loop.index }}" aria-label="Show homepage image {{ loop.index + 1 }}" aria-current="false"></button>
+            {% endfor %}
+          </div>
+        {% endif %}
       </section>
 
       {% if home.service_overview %}
@@ -175,14 +190,14 @@
         <span>{{ home.footer.company_legal_name }}</span>
       </div>
       <nav aria-label="Footer navigation">
-        <a href="/about">About</a>
-        <a href="/products">Products</a>
+        <a href="/about.html">About</a>
+        <a href="/products.html">Products</a>
         <a href="#workflow">Workflow</a>
         <a href="#contact">Contact</a>
       </nav>
       <p>{{ home.footer.copyright }}</p>
     </footer>
 
-    <script src="/script.js?v=content-cms"></script>
+    <script src="/script.js?v=home-carousel-16x9"></script>
   </body>
 </html>

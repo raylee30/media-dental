@@ -13,13 +13,13 @@ permalink: "/{{ product.slug }}.html"
     <title>{{ product.seo.title }}</title>
     <meta name="description" content="{{ product.seo.description }}" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/styles.css?v=content-cms" />
+    <link rel="stylesheet" href="/styles.css?v=carousel-slide-2s" />
   </head>
   <body data-page-type="product_detail" data-page-title="{{ product.title }}" data-product-slug="{{ product.slug }}" data-product-title="{{ product.title }}">
     <header class="site-header" data-header>
       <a class="brand" href="/#home" aria-label="{{ home.brand.name }} home"><span class="brand-mark" aria-hidden="true"><img src="{{ home.brand.logo }}" alt="" /></span><span><strong>{{ home.brand.name }}</strong><small>{{ home.brand.tagline }}</small></span></a>
       <button class="nav-toggle" type="button" aria-label="Open navigation" data-nav-toggle><span></span><span></span></button>
-      <nav class="main-nav" data-nav><a href="/about">About</a><a class="is-active" href="/products">Products</a><a href="/#capabilities">Capabilities</a><a href="/#workflow">Workflow</a><a href="/#contact">Contact</a><a class="nav-cta" href="{{ home.nav.send_case_link }}">{{ home.nav.send_case_label }}</a></nav>
+      <nav class="main-nav" data-nav><a href="/about.html">About</a><a class="is-active" href="/products.html">Products</a><a href="/#capabilities">Capabilities</a><a href="/#workflow">Workflow</a><a href="/#contact">Contact</a><a class="nav-cta" href="{{ home.nav.send_case_link }}">{{ home.nav.send_case_label }}</a></nav>
     </header>
     <main>
       <section class="section product-single-intro">
@@ -40,7 +40,6 @@ permalink: "/{{ product.slug }}.html"
             {% for item in product.gallery %}
               <figure class="product-single-image{% if loop.first %} product-single-image-main{% endif %}">
                 <img src="{{ item.image }}" alt="{{ item.alt }}" />
-                <figcaption>{{ item.caption }}</figcaption>
               </figure>
             {% endfor %}
           </div>
@@ -64,7 +63,7 @@ permalink: "/{{ product.slug }}.html"
               {% endif %}
             {% endfor %}
           {% endfor %}
-          <a href="/products">Back to Product Center</a>
+          <a href="/products.html">Back to Product Center</a>
         </aside>
       </section>
       <section class="section inquiry-section" id="inquiry">
@@ -84,7 +83,7 @@ permalink: "/{{ product.slug }}.html"
         </form>
       </section>
     </main>
-    <footer class="footer"><div><strong>{{ home.footer.company_name }}</strong><span>{{ home.footer.company_legal_name }}</span></div><nav aria-label="Footer navigation"><a href="/about">About</a><a href="/products">Products</a><a href="/#workflow">Workflow</a><a href="/#contact">Contact</a></nav><p>{{ home.footer.copyright }}</p></footer>
-    <script src="/script.js?v=content-cms"></script>
+    <footer class="footer"><div><strong>{{ home.footer.company_name }}</strong><span>{{ home.footer.company_legal_name }}</span></div><nav aria-label="Footer navigation"><a href="/about.html">About</a><a href="/products.html">Products</a><a href="/#workflow">Workflow</a><a href="/#contact">Contact</a></nav><p>{{ home.footer.copyright }}</p></footer>
+    <script src="/script.js?v=carousel-slide-2s"></script>
   </body>
 </html>

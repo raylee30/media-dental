@@ -15,11 +15,27 @@
   "hero": {
     "image": "/assets/meijia-lab-hero.jpg",
     "image_alt": "Modern dental laboratory with CAD/CAM equipment and ceramic restorations",
+    "carousel_images": [
+      {
+        "image": "/assets/home-hero-production.jpg",
+        "image_alt": "MEIJIA DENTAL production floor with CAD/CAM equipment and technicians in Shenzhen",
+        "eyebrow": "Baoan production base",
+        "title": "Shenzhen capacity built for stable case turnaround.",
+        "subtitle": "From digital design to milling, finishing and inspection, our Baoan team keeps multi-category cases moving through a clear production workflow."
+      },
+      {
+        "image": "/assets/home-hero-ceramic-detail.jpg",
+        "image_alt": "Dental technician inspecting all-ceramic restorations in the laboratory",
+        "eyebrow": "Technician finished details",
+        "title": "Natural restorations shaped by digital accuracy and hand review.",
+        "subtitle": "Every crown, bridge and appliance is checked for morphology, contacts, occlusion, shade communication and final polish before delivery."
+      }
+    ],
     "eyebrow": "Shenzhen based dental restoration partner",
     "title": "Reliable digital restorations for clinics and labs worldwide.",
     "subtitle": "MEIJIA DENTAL combines Hong Kong inspired prosthodontic standards with Shenzhen manufacturing efficiency to deliver precise, consistent and cost-effective dental restorations.",
     "primary_button_label": "Explore Products",
-    "primary_button_link": "/products",
+    "primary_button_link": "/products.html",
     "secondary_button_label": "Request a Quote",
     "secondary_button_link": "#contact",
     "metrics": [
@@ -62,7 +78,7 @@
       "Our team supports dental clinics, distributors and partner laboratories with fixed restorations, implant solutions, removable prosthetics and orthodontic appliances. Every case is reviewed around fit, morphology, contact, occlusion, shade and finishing before dispatch."
     ],
     "button_label": "Read the company profile",
-    "button_link": "/about",
+    "button_link": "/about.html",
     "facts": [
       {
         "title": "Production Focus",

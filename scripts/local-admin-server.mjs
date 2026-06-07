@@ -459,6 +459,8 @@ function staticFilePath(urlPath) {
   const normalized = normalize(pathname).replace(/^(\.\.[/\\])+/, "");
   const file = join(siteDir, normalized);
   if (existsSync(file) && statSync(file).isFile()) return file;
+  const htmlFile = join(siteDir, `${normalized}.html`);
+  if (!pathname.includes(".") && existsSync(htmlFile) && statSync(htmlFile).isFile()) return htmlFile;
   if (pathname.startsWith("/assets/uploads/")) {
     const uploadFile = join(root, "src", pathname);
     if (existsSync(uploadFile) && statSync(uploadFile).isFile()) return uploadFile;

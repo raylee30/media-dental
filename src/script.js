@@ -3,6 +3,7 @@ const nav = document.querySelector("[data-nav]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const inquiryForms = document.querySelectorAll(".inquiry-form");
 const productGalleries = document.querySelectorAll(".product-single-gallery");
+const heroCarousel = document.querySelector("[data-hero-carousel]");
 const inquiryEmail = "646483619@qq.com";
 const pageStartedAt = Date.now();
 let exitTracked = false;
@@ -166,14 +167,98 @@ inquiryForms.forEach((form) => {
   });
 });
 
+if (heroCarousel) {
+  const heroSlides = Array.from(heroCarousel.querySelectorAll(".hero-slide"));
+  const heroDots = Array.from(document.querySelectorAll("[data-hero-dot]"));
+  const heroCopyTargets = {
+    eyebrow: document.querySelector('[data-hero-copy-field="eyebrow"]'),
+    title: document.querySelector('[data-hero-copy-field="title"]'),
+    subtitle: document.querySelector('[data-hero-copy-field="subtitle"]')
+  };
+  const heroDelay = 4500;
+  let activeHeroIndex = 0;
+  let heroTimer = null;
+  let heroCopyTimer = null;
+
+  function setHeroCopy(slide, animate = true) {
+    const nextCopy = {
+      eyebrow: slide.dataset.heroEyebrow || "",
+      title: slide.dataset.heroTitle || "",
+      subtitle: slide.dataset.heroSubtitle || ""
+    };
+
+    function applyCopy() {
+      Object.entries(nextCopy).forEach(([key, value]) => {
+        if (heroCopyTargets[key]) {
+          heroCopyTargets[key].textContent = value;
+        }
+      });
+    }
+
+    window.clearTimeout(heroCopyTimer);
+
+    if (!animate) {
+      applyCopy();
+      return;
+    }
+
+    document.body.classList.add("is-hero-copy-changing");
+    heroCopyTimer = window.setTimeout(() => {
+      applyCopy();
+      document.body.classList.remove("is-hero-copy-changing");
+    }, 140);
+  }
+
+  function showHeroSlide(nextIndex) {
+    activeHeroIndex = (nextIndex + heroSlides.length) % heroSlides.length;
+
+    heroSlides.forEach((slide, index) => {
+      const isActive = index === activeHeroIndex;
+
+      slide.classList.toggle("is-active", isActive);
+      slide.setAttribute("aria-hidden", String(!isActive));
+      heroDots[index]?.classList.toggle("is-active", isActive);
+      heroDots[index]?.setAttribute("aria-current", isActive ? "true" : "false");
+    });
+
+    setHeroCopy(heroSlides[activeHeroIndex], activeHeroIndex !== 0);
+  }
+
+  function startHeroAutoplay() {
+    if (heroTimer || heroSlides.length < 2) return;
+    heroTimer = window.setInterval(() => showHeroSlide(activeHeroIndex + 1), heroDelay);
+  }
+
+  function restartHeroAutoplay() {
+    if (heroTimer) {
+      window.clearInterval(heroTimer);
+      heroTimer = null;
+    }
+
+    startHeroAutoplay();
+  }
+
+  heroDots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      showHeroSlide(index);
+      restartHeroAutoplay();
+    });
+  });
+
+  showHeroSlide(0);
+  startHeroAutoplay();
+}
+
 productGalleries.forEach((gallery) => {
   const slides = Array.from(gallery.querySelectorAll(".product-single-image"));
+  const autoplayDelay = 2000;
 
   if (slides.length < 2) {
     return;
   }
 
   let activeIndex = 0;
+  let autoplayTimer = null;
   const controls = document.createElement("div");
   const prevButton = document.createElement("button");
   const nextButton = document.createElement("button");
@@ -184,7 +269,10 @@ productGalleries.forEach((gallery) => {
     dot.type = "button";
     dot.className = "product-carousel-dot";
     dot.setAttribute("aria-label", `Show image ${index + 1}`);
-    dot.addEventListener("click", () => showSlide(index));
+    dot.addEventListener("click", () => {
+      showSlide(index, index >= activeIndex ? "next" : "prev");
+      restartAutoplay();
+    });
     dots.append(dot);
 
     return dot;
@@ -194,32 +282,80 @@ productGalleries.forEach((gallery) => {
   dots.className = "product-carousel-dots";
   prevButton.type = "button";
   nextButton.type = "button";
-  prevButton.className = "product-carousel-button";
-  nextButton.className = "product-carousel-button";
+  prevButton.className = "product-carousel-button is-prev";
+  nextButton.className = "product-carousel-button is-next";
   prevButton.setAttribute("aria-label", "Show previous image");
   nextButton.setAttribute("aria-label", "Show next image");
   prevButton.textContent = "<";
   nextButton.textContent = ">";
 
-  function showSlide(nextIndex) {
-    activeIndex = (nextIndex + slides.length) % slides.length;
+  function showSlide(nextIndex, direction = "next") {
+    const previousIndex = activeIndex;
+    const normalizedIndex = (nextIndex + slides.length) % slides.length;
+    const isReady = gallery.classList.contains("is-ready");
+
+    if (normalizedIndex === activeIndex && isReady) {
+      return;
+    }
+
+    if (isReady) {
+      const enteringSlide = slides[normalizedIndex];
+
+      enteringSlide.classList.remove("is-active", "is-before", "is-after");
+      enteringSlide.classList.add(direction === "next" ? "is-after" : "is-before");
+      enteringSlide.setAttribute("aria-hidden", "true");
+      enteringSlide.getBoundingClientRect();
+    }
+
+    activeIndex = normalizedIndex;
 
     slides.forEach((slide, index) => {
       const isActive = index === activeIndex;
 
       slide.classList.toggle("is-active", isActive);
+      slide.classList.toggle(
+        "is-before",
+        !isActive && (index === previousIndex ? direction === "next" : index < activeIndex)
+      );
+      slide.classList.toggle(
+        "is-after",
+        !isActive && (index === previousIndex ? direction === "prev" : index > activeIndex)
+      );
       slide.setAttribute("aria-hidden", String(!isActive));
       dotButtons[index].classList.toggle("is-active", isActive);
       dotButtons[index].setAttribute("aria-current", isActive ? "true" : "false");
     });
   }
 
-  prevButton.addEventListener("click", () => showSlide(activeIndex - 1));
-  nextButton.addEventListener("click", () => showSlide(activeIndex + 1));
-  controls.append(prevButton, dots, nextButton);
-  gallery.append(controls);
+  function startAutoplay() {
+    if (autoplayTimer) return;
+    autoplayTimer = window.setInterval(() => showSlide(activeIndex + 1, "next"), autoplayDelay);
+  }
+
+  function stopAutoplay() {
+    if (!autoplayTimer) return;
+    window.clearInterval(autoplayTimer);
+    autoplayTimer = null;
+  }
+
+  function restartAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
+  prevButton.addEventListener("click", () => {
+    showSlide(activeIndex - 1, "prev");
+    restartAutoplay();
+  });
+  nextButton.addEventListener("click", () => {
+    showSlide(activeIndex + 1, "next");
+    restartAutoplay();
+  });
+  controls.append(prevButton, nextButton);
+  gallery.append(controls, dots);
+  showSlide(0, "next");
   gallery.classList.add("is-ready");
-  showSlide(0);
+  startAutoplay();
 });
 
 document.addEventListener("click", (event) => {
