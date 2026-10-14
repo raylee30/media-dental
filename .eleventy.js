@@ -9,6 +9,7 @@ export default function (eleventyConfig) {
     "src/js",
     "src/fonts",
     "src/_headers",
+    "src/robots.txt",
     "src/styles.css",
     "src/script.js"
   ];
@@ -20,6 +21,10 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.ignores.add("src/admin/**/*.html");
+  eleventyConfig.addFilter("cleanUrl", (url) => {
+    if (url === "/index.html") return "/";
+    return url.replace(/\.html$/, "");
+  });
 
   return {
     dir: {

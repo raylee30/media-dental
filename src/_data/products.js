@@ -15,7 +15,7 @@ export default function () {
 
       return {
         ...product,
-        url: `/${product.slug}.html`
+        url: `/${product.slug}`
       };
     })
     .sort((a, b) => (a.order || 999) - (b.order || 999));

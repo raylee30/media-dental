@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "MEIJIA DENTAL | Digital Dental Laboratory in Shenzhen",
+    "title": "Dental Laboratory in Shenzhen, China | MEIJIA DENTAL",
     "description": "MEIJIA DENTAL is a Shenzhen dental laboratory providing all-ceramic, PFM, implant, removable and orthodontic restoration solutions for dental clinics and laboratories."
   },
   "brand": {
@@ -35,7 +35,7 @@
     "title": "Reliable digital restorations for clinics and labs worldwide.",
     "subtitle": "MEIJIA DENTAL combines Hong Kong inspired prosthodontic standards with Shenzhen manufacturing efficiency to deliver precise, consistent and cost-effective dental restorations.",
     "primary_button_label": "Explore Products",
-    "primary_button_link": "/products.html",
+    "primary_button_link": "/products",
     "secondary_button_label": "Request a Quote",
     "secondary_button_link": "#contact",
     "metrics": [
@@ -78,7 +78,7 @@
       "Our team supports dental clinics, distributors and partner laboratories with fixed restorations, implant solutions, removable prosthetics and orthodontic appliances. Every case is reviewed around fit, morphology, contact, occlusion, shade and finishing before dispatch."
     ],
     "button_label": "Read the company profile",
-    "button_link": "/about.html",
+    "button_link": "/about",
     "facts": [
       {
         "title": "Production Focus",
@@ -97,7 +97,7 @@
   "product_section": {
     "eyebrow": "Product Center",
     "title": "Restoration solutions for everyday clinical demand.",
-    "description": "A focused product portfolio covers the categories from the original company page while presenting them clearly for English-speaking buyers.",
+    "description": "Explore all-ceramic crowns, PFM, implant restorations, removable dentures and orthodontic appliances for clinics and partner laboratories.",
     "max_items": 6
   },
   "capabilities": {
