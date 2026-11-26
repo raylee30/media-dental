@@ -4,6 +4,7 @@ pagination:
   size: 1
   alias: product
 permalink: "/{{ product.slug }}.html"
+navSection: products
 ---
 <!doctype html>
 <html lang="en">
@@ -14,14 +15,10 @@ permalink: "/{{ product.slug }}.html"
     <meta name="description" content="{{ product.seo.description }}" />
     <link rel="canonical" href="{{ site.url }}{{ page.url | cleanUrl }}" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/styles.css?v=carousel-slide-2s" />
+    <link rel="stylesheet" href="/styles.css?v=resources" />
   </head>
   <body data-page-type="product_detail" data-page-title="{{ product.title }}" data-product-slug="{{ product.slug }}" data-product-title="{{ product.title }}">
-    <header class="site-header" data-header>
-      <a class="brand" href="/#home" aria-label="{{ home.brand.name }} home"><span class="brand-mark" aria-hidden="true"><img src="{{ home.brand.logo }}" alt="" /></span><span><strong>{{ home.brand.name }}</strong><small>{{ home.brand.tagline }}</small></span></a>
-      <button class="nav-toggle" type="button" aria-label="Open navigation" data-nav-toggle><span></span><span></span></button>
-      <nav class="main-nav" data-nav><a href="/about">About</a><a class="is-active" href="/products">Products</a><a href="/#capabilities">Capabilities</a><a href="/#workflow">Workflow</a><a href="/#contact">Contact</a><a class="nav-cta" href="{{ home.nav.send_case_link }}">{{ home.nav.send_case_label }}</a></nav>
-    </header>
+    {% include "site-header.njk" %}
     <main>
       <section class="section product-single-intro">
         <div class="product-single-copy">
@@ -67,6 +64,19 @@ permalink: "/{{ product.slug }}.html"
           <a href="/products">Back to Product Center</a>
         </aside>
       </section>
+      {% set relatedResources = collections.publishedResources | resourcesForProduct(product.slug) %}
+      {% if relatedResources.length %}
+        <section class="section product-resources" aria-labelledby="product-resources-heading">
+          <h2 id="product-resources-heading">Related resources</h2>
+          <ul>
+            {% for resource in relatedResources %}
+              {% if loop.index <= 3 %}
+                <li><a class="text-link" href="{{ resource.url }}">{{ resource.data.title | escape }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </section>
+      {% endif %}
       <section class="section inquiry-section" id="inquiry">
         <div class="section-copy">
           <p class="eyebrow">Inquiry Form</p>
@@ -84,7 +94,7 @@ permalink: "/{{ product.slug }}.html"
         </form>
       </section>
     </main>
-    <footer class="footer"><div><strong>{{ home.footer.company_name }}</strong><span>{{ home.footer.company_legal_name }}</span></div><nav aria-label="Footer navigation"><a href="/about">About</a><a href="/products">Products</a><a href="/#workflow">Workflow</a><a href="/#contact">Contact</a></nav><p>{{ home.footer.copyright }}</p></footer>
-    <script src="/script.js?v=carousel-slide-2s"></script>
+    {% include "site-footer.njk" %}
+    <script src="/script.js?v=resources"></script>
   </body>
 </html>

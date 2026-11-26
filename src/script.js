@@ -33,12 +33,14 @@ function updateHeader() {
 navToggle.addEventListener("click", () => {
   const isOpen = nav.classList.toggle("is-open");
   navToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+  navToggle.setAttribute("aria-expanded", String(isOpen));
 });
 
 nav.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     nav.classList.remove("is-open");
     navToggle.setAttribute("aria-label", "Open navigation");
+    navToggle.setAttribute("aria-expanded", "false");
   });
 });
 

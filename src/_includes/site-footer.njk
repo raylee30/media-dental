@@ -1,0 +1,15 @@
+{% set anchorBase = "" if page.url == "/" else "/" %}
+<footer class="footer">
+  <div>
+    <strong>{{ home.footer.company_name }}</strong>
+    <span>{{ home.footer.company_legal_name }}</span>
+  </div>
+  <nav aria-label="Footer navigation">
+    <a href="/about">About</a>
+    <a href="/products">Products</a>
+    <a href="/resources/">Resources</a>
+    <a href="{{ anchorBase }}#workflow">Workflow</a>
+    <a href="{{ anchorBase }}#contact">Contact</a>
+  </nav>
+  <p>{{ home.footer.copyright }}</p>
+</footer>

@@ -1,0 +1,23 @@
+{% set anchorBase = "" if page.url == "/" else "/" %}
+<header class="site-header" data-header>
+  <a class="brand" href="{{ anchorBase }}#home" aria-label="{{ home.brand.name }} home">
+    <span class="brand-mark" aria-hidden="true"><img src="{{ home.brand.logo }}" alt="" /></span>
+    <span>
+      <strong>{{ home.brand.name }}</strong>
+      <small>{{ home.brand.tagline }}</small>
+    </span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation" data-nav-toggle>
+    <span></span>
+    <span></span>
+  </button>
+  <nav class="main-nav" id="main-navigation" aria-label="Main navigation" data-nav>
+    <a href="/about"{% if navSection == "about" %} class="is-active" aria-current="page"{% endif %}>About</a>
+    <a href="/products"{% if navSection == "products" %} class="is-active"{% endif %}{% if page.url == "/products.html" %} aria-current="page"{% endif %}>Products</a>
+    <a href="/resources/"{% if navSection == "resources" %} class="is-active"{% endif %}{% if page.url == "/resources/" %} aria-current="page"{% endif %}>Resources</a>
+    <a href="{{ anchorBase }}#capabilities">Capabilities</a>
+    <a href="{{ anchorBase }}#workflow">Workflow</a>
+    <a href="{{ anchorBase }}#contact">Contact</a>
+    <a class="nav-cta" href="{{ home.nav.send_case_link }}">{{ home.nav.send_case_label }}</a>
+  </nav>
+</header>

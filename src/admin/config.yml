@@ -1,6 +1,3 @@
-locale: "zh_Hans"
-local_backend: true
-
 backend:
   name: github
   repo: raylee30/media-dental
@@ -418,3 +415,47 @@ collections:
         fields:
           - { label: "浏览器标题", name: "title", widget: "string" }
           - { label: "页面描述", name: "description", widget: "text" }
+
+  - name: "resources"
+    label: "文章管理"
+    label_singular: "文章"
+    description: "发布材料与产品、公司介绍类英文文章。正文支持粘贴网页、Word 和 Markdown 内容并保留可用格式，也可直接粘贴图片。关闭草稿后，下次网站部署时上线。"
+    folder: "src/resources"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    preview_path: "resources/{{slug}}/"
+    sortable_fields: ["date", "title"]
+    view_groups:
+      - { label: "文章分类", field: "category" }
+    editor:
+      preview: true
+    fields:
+      - { label: "英文标题", name: "title", widget: "string", hint: "新文章的网址由首次保存时的英文标题生成。" }
+      - label: "分类"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "材料与产品", value: "materials-products" }
+          - { label: "公司介绍", value: "company" }
+      - { label: "草稿", name: "draft", widget: "boolean", default: true, required: false, hint: "开启时，保存后文章不会在生产网站显示。审核完成后关闭草稿并再次保存，文章会随下次部署上线。" }
+      - { label: "发布日期", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", hint: "用于显示与排序。" }
+      - { label: "英文摘要", name: "summary", widget: "text", hint: "用于文章卡片和搜索结果，建议用一到两句话说明文章内容。" }
+      - label: "英文正文"
+        name: "body"
+        widget: "richtext"
+        modes: ["rich_text", "raw"]
+        editor_components: ["image", "code-block", "table", "hr"]
+        linked_images: false
+        captioned_images: false
+        hint: "可直接粘贴网页或 Word 文章，格式会自动整理。切换到 Markdown 模式可编辑原始语法。粘贴图片后会自动存入网站。"
+      - label: "关联产品"
+        name: "related_products"
+        widget: "relation"
+        collection: "products"
+        search_fields: ["title", "slug"]
+        value_field: "slug"
+        display_fields: ["title"]
+        multiple: true
+        required: false
+        hint: "选中的产品与文章会自动互相链接。"

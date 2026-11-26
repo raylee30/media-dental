@@ -1,0 +1,41 @@
+---
+permalink: /resources/index.html
+navSection: resources
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resources | {{ home.brand.name }}</title>
+    <meta name="description" content="Explore dental materials, restoration options and the MEIJIA DENTAL laboratory in Shenzhen." />
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css?v=resources" />
+  </head>
+  <body data-page-type="resources" data-page-title="Resources">
+    {% include "site-header.njk" %}
+    <main>
+      <header class="resource-index-header">
+        <div class="section">
+          <h1>Resources</h1>
+          <p>Explore dental materials, restoration options and our laboratory in Shenzhen.</p>
+        </div>
+      </header>
+      <section class="section resource-list" aria-labelledby="resource-list-heading">
+        <h2 id="resource-list-heading">Latest articles</h2>
+        {% if collections.publishedResources.length %}
+          <div class="resource-grid">
+            {% for resource in collections.publishedResources %}
+              {% include "resource-card.njk" %}
+            {% endfor %}
+          </div>
+        {% else %}
+          <p>New articles will appear here as they are published.</p>
+        {% endif %}
+      </section>
+    </main>
+    {% include "site-footer.njk" %}
+    <script src="/script.js?v=resources"></script>
+  </body>
+</html>

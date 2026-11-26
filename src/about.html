@@ -1,5 +1,6 @@
 ---
 permalink: /about.html
+navSection: about
 ---
 <!doctype html>
 <html lang="en">
@@ -10,30 +11,10 @@ permalink: /about.html
     <meta name="description" content="{{ aboutPage.seo.description }}" />
     <link rel="canonical" href="{{ site.url }}{{ page.url | cleanUrl }}" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/styles.css?v=easy-cms" />
+    <link rel="stylesheet" href="/styles.css?v=resources" />
   </head>
   <body data-page-type="about" data-page-title="About">
-    <header class="site-header" data-header>
-      <a class="brand" href="/#home" aria-label="{{ home.brand.name }} home">
-        <span class="brand-mark" aria-hidden="true"><img src="{{ home.brand.logo }}" alt="" /></span>
-        <span>
-          <strong>{{ home.brand.name }}</strong>
-          <small>{{ home.brand.tagline }}</small>
-        </span>
-      </a>
-      <button class="nav-toggle" type="button" aria-label="Open navigation" data-nav-toggle>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="main-nav" data-nav>
-        <a class="is-active" href="/about">About</a>
-        <a href="/products">Products</a>
-        <a href="/#capabilities">Capabilities</a>
-        <a href="/#workflow">Workflow</a>
-        <a href="/#contact">Contact</a>
-        <a class="nav-cta" href="{{ home.nav.send_case_link }}">{{ home.nav.send_case_label }}</a>
-      </nav>
-    </header>
+    {% include "site-header.njk" %}
 
     <main>
       <section class="page-hero about-hero">
@@ -114,20 +95,8 @@ permalink: /about.html
       </section>
     </main>
 
-    <footer class="footer">
-      <div>
-        <strong>{{ home.footer.company_name }}</strong>
-        <span>{{ home.footer.company_legal_name }}</span>
-      </div>
-      <nav aria-label="Footer navigation">
-        <a href="/about">About</a>
-        <a href="/products">Products</a>
-        <a href="/#workflow">Workflow</a>
-        <a href="/#contact">Contact</a>
-      </nav>
-      <p>{{ home.footer.copyright }}</p>
-    </footer>
+    {% include "site-footer.njk" %}
 
-    <script src="/script.js?v=easy-cms"></script>
+    <script src="/script.js?v=resources"></script>
   </body>
 </html>

@@ -7,6 +7,10 @@ eleventyExcludeFromCollections: true
   <url><loc>{{ site.url }}/</loc></url>
   <url><loc>{{ site.url }}/about</loc></url>
   <url><loc>{{ site.url }}/products</loc></url>
+  <url><loc>{{ site.url }}/resources/</loc></url>
 {% for product in products %}
   <url><loc>{{ site.url }}{{ product.url }}</loc></url>
+{% endfor %}
+{% for resource in collections.publishedResources %}
+  <url><loc>{{ site.url }}{{ resource.url }}</loc></url>
 {% endfor %}</urlset>

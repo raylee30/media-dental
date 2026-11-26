@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "eleventy --serve --input=src --output=_site",
+    "prebuild": "node -e \"require('node:fs').rmSync('_site/resources', { recursive: true, force: true })\"",
     "build": "eleventy --input=src --output=_site"
   },
   "devDependencies": {

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ title | escape }} | {{ home.brand.name }}</title>
+    <meta name="description" content="{{ summary | escape }}" />
+    {% if draft !== false %}<meta name="robots" content="noindex" />{% endif %}
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ title | escape }}" />
+    <meta property="og:description" content="{{ summary | escape }}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css?v=resources" />
+  </head>
+  <body data-page-type="resource_detail" data-page-title="{{ title | escape }}">
+    {% include "site-header.njk" %}
+    <main class="resource-article">
+      <article aria-labelledby="resource-title">
+        <header class="resource-article-header">
+          <a class="resource-back-link" href="/resources/">&larr; All resources</a>
+          <p class="resource-category">{{ resourceCategories[category] }}{% if draft !== false %} · Draft preview{% endif %}</p>
+          <h1 id="resource-title">{{ title | escape }}</h1>
+          <p class="resource-summary">{{ summary | escape }}</p>
+          <time datetime="{{ page.date | isoDate }}">{{ page.date | resourceDate }}</time>
+        </header>
+        <div class="resource-prose">{{ content | safe }}</div>
+      </article>
+
+      {% set relatedProducts = products | productsForResource(related_products) %}
+      <section class="resource-next" aria-labelledby="resource-next-heading">
+        {% if relatedProducts.length %}
+          <h2 id="resource-next-heading">Related products</h2>
+          <ul>
+            {% for item in relatedProducts %}
+              <li><a class="text-link" href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <h2 id="resource-next-heading">Work with MEIJIA DENTAL</h2>
+        {% endif %}
+        <a class="button button-teal" href="/#contact">Discuss a case</a>
+      </section>
+    </main>
+    {% include "site-footer.njk" %}
+    <script src="/script.js?v=resources"></script>
+  </body>
+</html>
