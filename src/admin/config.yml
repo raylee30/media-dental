@@ -3,7 +3,7 @@ backend:
   repo: raylee30/media-dental
   branch: main
   auth_type: additions
-  base_url: https://cms-auth.mjsmiles.com
+  base_url: https://www.mjsmiles.com/admin/api
 
 media_folder: "src/assets/uploads"
 public_folder: "/assets/uploads"

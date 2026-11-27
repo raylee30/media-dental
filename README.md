@@ -55,7 +55,7 @@ If the production domain changes, update both `src/_data/site.json` and the site
 
 ## Production CMS sign-in
 
-Sign in at `https://www.mjsmiles.com/admin/` with a CMS username and password. Manage editors in **Administration → Users**. The Sveltia CMS Additions Worker at `https://cms-auth.mjsmiles.com` uses a GitHub App installed on `raylee30/media-dental`. CMS saves go to `main`, which triggers the Cloudflare Pages build. The production CMS hostname must be listed under **Administration → Domains** in Sveltia CMS.
+Sign in at `https://www.mjsmiles.com/admin/` with a CMS username and password. Manage editors in **Administration → Users**. The CMS sends authentication requests through `/admin/api/` on the website, which Cloudflare Pages forwards to the Sveltia CMS Additions Worker at `https://cms-auth.mjsmiles.com`. The Worker uses a GitHub App installed on `raylee30/media-dental`. CMS saves go to `main`, which triggers the Cloudflare Pages build. The production CMS hostname must be listed under **Administration → Domains** in Sveltia CMS.
 
 ## Legacy GitHub OAuth fallback
 
