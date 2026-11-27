@@ -53,7 +53,11 @@ After deploying to the production domain, check that `/sitemap.xml` returns XML 
 
 If the production domain changes, update both `src/_data/site.json` and the sitemap address in `src/robots.txt` before building.
 
-## GitHub OAuth
+## Production CMS sign-in
+
+Sign in at `https://www.mjsmiles.com/admin/` with a CMS username and password. Manage editors in **Administration → Users**. The Sveltia CMS Additions Worker at `https://cms-auth.mjsmiles.com` uses a GitHub App installed on `raylee30/media-dental`. CMS saves go to `main`, which triggers the Cloudflare Pages build. The production CMS hostname must be listed under **Administration → Domains** in Sveltia CMS.
+
+## Legacy GitHub OAuth fallback
 
 Create a GitHub OAuth App and set the callback URL to:
 
